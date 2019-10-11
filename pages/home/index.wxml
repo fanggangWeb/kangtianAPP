@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="content">
+    <view class="swiper">
+      <swiper indicator-dots="{{indicatorDots}}" data-item="{{item}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}" bindtap="handleClick" bindchange="switchChange">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item">
+              <image class="" src="{{item.url}}" />  
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+</view>
