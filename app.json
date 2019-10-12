@@ -8,7 +8,20 @@
     "backgroundColor": "#eee",
     "navigationBarBackgroundColor": "#eee",
     "navigationBarTitleText": "康田置业",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/bar/index",
+        "text": "日志"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

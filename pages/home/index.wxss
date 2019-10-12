@@ -1,14 +1,116 @@
 .container {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
-
+.content {
+}
 /* 轮播图 */
 .swiper {
   width: 100%;
   height: 266rpx;
 }
-.swiper .swiper-item, .swiper .swiper-item image {
+
+.swiper swiper {
+  height: 100%;
+}
+
+.swiper .swiper-item,
+.swiper .swiper-item image {
   width: 100%;
   height: 100%;
+}
+
+/* 通知栏 */
+.notice {
+  width: 100%;
+  height: 96rpx;
+  border-top: #EEEEEE 2rpx solid;
+  border-bottom: #EEEEEE 2rpx solid;
+  margin-top: 60rpx;
+  display: flex;
+  line-height: 96rpx;
+}
+
+.notice-left {
+  width: 128rpx;
+  height: 100%;
+  text-align: center;
+  border-right: 1rpx solid #EEEEEE;
+  box-sizing: border-box;
+}
+
+.notice-left image {
+  width: 68rpx;
+  height: 34rpx;
+}
+
+.notice-right {
+  width: calc(100% - 128rpx);
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.notice-right scroll-view {
+  width: 100%;
+  height: 100%;
+}
+/* 滚动文字 */
+.scrolltxt {
+  width: 100%;
+  height: 100%;
+  /* padding: 0 30rpx; */
+}
+.marquee_box {
+  position: relative;
+  color: #666666;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.marquee_text {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  font-size: 28rpx;
+  height: 100%;
+}
+/* 滚动文字结束 */
+.title {
+  display: block;
+  font-size: 36rpx;
+  color: #333333;
+  font-weight: bold;
+  margin: 0rpx 0 40rpx 32rpx;
+}
+.menu {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding-left: 44rpx;
+}
+.menu-item {
+  width: 108rpx;
+  margin-bottom: 40rpx;
+  margin-right: 74rpx;
+}
+.menu-item:nth-child(4n) {
+  margin-right: 0rpx;
+}
+.menu-icon {
+  width: 108rpx;
+  height: 108rpx;
+}
+.menu-icon image {
+  width: 100%;
+  height: 100%;
+}
+.menu-item .name {
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #333333;
+  margin-top: 30rpx;
 }

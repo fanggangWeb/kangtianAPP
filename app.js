@@ -1,11 +1,21 @@
 //app.js
 App({
-  onLaunch: function () {
-    // 展示本地存储能力
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-
+  onLaunch: function (options) {
+    // 判断是否由分享进入小程序
+    if (options.scene == 1007 || options.scene == 1008) {
+      this.globalData.share = true
+    } else {
+      this.globalData.share = false
+    };
+    // 获取设备顶部窗口的高度（不同设备窗口高度不一样，根据这个来设置自定义导航栏的高度）
+    wx.getSystemInfo({
+        success: (res) => {
+          console.log(res.statusBarHeight)
+          this.globalData.height = res.statusBarHeight
+        }, fail(err) {
+          console.log(err);
+        }
+    })
     // 登录
     // wx.login({
     //   success: res => {
@@ -34,6 +44,7 @@ App({
     // })
   },
   globalData: {
-    // userInfo: null
+    share: false,  // 分享默认为false
+    height: 0 // 导航栏高度
   }
 })
