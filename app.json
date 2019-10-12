@@ -12,14 +12,27 @@
     "navigationStyle": "custom"
   },
   "tabBar": {
+    "color": "#BCBCBC",  
+    "selectedColor": "#396BEA",  
+    "borderStyle": "black" ,
     "list": [
       {
+        "selectedIconPath": "/assets/images/tab-gzt1.png",  
+        "iconPath": "/assets/images/tabgzt.png",  
         "pagePath": "pages/home/index",
-        "text": "首页"
+        "text": "工作台"
       },
       {
+        "selectedIconPath": "/assets/images/tab-wode1.png",  
+        "iconPath": "/assets/images/tab-wode.png",  
         "pagePath": "pages/bar/index",
-        "text": "日志"
+        "text": "我的消息"
+      },
+      {
+        "selectedIconPath": "/assets/images/tab-geren1.png",  
+        "iconPath": "/assets/images/tab-geren.png",  
+        "pagePath": "pages/bar/index",
+        "text": "个人消息"
       }
     ]
   },
