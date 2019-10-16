@@ -1,0 +1,12 @@
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<!-- 暂无数据 -->
+<!-- <import src="/pages/no_data/index.wxml" /> -->
+<view class="container" style='padding-top: {{height}}px'>
+  <view class="info-con">
+    <view class="avatar-line">
+      <view class="avatar">
+        <image class="avatar-image" src="/assets/images/text.jpg"/>
+      </view>
+    </view>
+  </view>
+</view>

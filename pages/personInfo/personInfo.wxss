@@ -1,0 +1,162 @@
+page {
+  background: #396BEA;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;  /* 该模式包含navbar的高度 */
+}
+/* 顶部蓝色区域 */
+.blue-area {
+  width: 100%;
+  height: 274rpx;
+  background: #396BEA;
+  display: flex;
+  align-items: center;
+}
+/* 头像的整体布局 */
+.avatar-con {
+  position: relative;
+  width: 150rpx;
+  height: 150rpx;
+  background: #ECEFF4;
+  border-radius: 50%;
+  margin-left: 30rpx;
+}
+.avatar-con .avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+.set-icon {
+  display: block;
+  position: absolute;
+  bottom: -13rpx;
+  left: calc(50% - 23rpx);
+  width: 46rpx;
+  height: 26rpx;
+  z-index: 3;
+}
+/* 昵称状态的整体文字布局 */
+.text-con {
+  margin-left: 36rpx;
+  height: 150rpx;
+  position: relative;
+}
+.text-con .username {
+  display: block;
+  height: 75rpx;
+  line-height: 75rpx;
+  font-weight: bold;
+  color: white;
+  font-size: 44rpx;
+}
+.text-con .status {
+  height: 75rpx;
+  display: flex;
+  align-items: center;
+}
+.status-icon {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: white;
+}
+.status-icon.green {
+  background: #3CDC4B;
+}
+.status-icon.red {
+  background: #E4554E;
+}
+.status-icon.purple {
+  background: #594EE4;
+}
+.status-icon.grey {
+  background: #B0B0B0;
+}
+.status-icon.white {
+  background: #ececec;
+}
+.status-name {
+  color: white;
+  font-size: 32rpx;
+  margin: 0 20rpx 0 10rpx;
+}
+.status-arrow {
+  width: 16rpx;
+  height: 10rpx;
+}
+/* 弹出的多种状态 */
+.status-list {
+  position: absolute;
+  top: 75rpx;
+  left: 0rpx;
+  width: 180rpx;
+  /* height: 200rpx; */
+  background: white;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0 10rpx rgb(190, 188, 188);
+  z-index: 5;
+}
+.status-item {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-bottom: solid 2rpx #ECEFF4;
+}
+.status-item:last-child {
+  border-bottom: none;
+}
+.status-item-name {
+  font-size: 28rpx;
+  color: #333333;
+  margin-left: 16rpx;
+}
+/* 操作栏 */
+.options {
+  width: 100%;
+  height: calc(100% - 274rpx);
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+  z-index: 2;
+  background: white;
+}
+.line {
+  width: calc(100% - 60rpx);
+  margin: 0 30rpx;
+  height: 120rpx;
+  background: white;
+  box-sizing: border-box;
+  /* padding: 0 30rpx; */
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.line .icon, .line .icon image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.line .text {
+  font-size: 34rpx;
+  color: #333333;
+  margin-left: 30rpx;
+  font-weight: medium;
+}
+.hign-line {
+  /* position: relative; */
+  height: 146rpx;
+}
+.border-line {
+  border-bottom: 2rpx solid #ECEFF4;
+}
+/* 蓝色分割线 */
+.bg-line {
+  position: relative;
+  width: 100%;
+  height: 10rpx;
+  background: #ECEFF4;
+}

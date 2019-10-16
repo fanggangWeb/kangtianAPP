@@ -1,0 +1,6 @@
+<template name="noData">
+  <view class="noData" style='margin-top:{{mtop?mtop:0}}rpx;'>
+    <image src="/assets/images/no_data.png"></image>
+    <view>{{text}}</view>
+  </view>
+</template>

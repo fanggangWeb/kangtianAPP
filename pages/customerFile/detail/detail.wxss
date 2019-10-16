@@ -1,0 +1,21 @@
+@import "/assets/wxss/common.wxss";
+.container {
+  width: 100%;
+}
+.info-con {
+  width: 100%;
+  background: white;
+  padding: 0 30rpx 40rpx 30rpx;
+}
+.avatar-line {
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.avatar, .avatar-image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background: #ECEFF4;
+}

@@ -1,0 +1,23 @@
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<view class="container" style='padding-top: {{height}}px'>
+  <view class="content">
+    <view class="big-title">添加账号</view>
+    <view class="input-box login-box">
+      <view class="input-icon">
+        <image class="" src="../../assets/images/login-user.png"/>
+      </view>
+      <input type="text" placeholder="输入账号" bindinput="accountInput" placeholder-class="place-style"/>
+    </view>
+    <view class="input-box pass-box">
+      <view class="input-icon">
+        <image class="" style="margin-top: 4rpx;" src="../../assets/images/login-pass.png"/>
+      </view>
+      <input type="password" placeholder="输入密码" bindinput="passInput" placeholder-class="place-style"/>
+    </view>
+    <view class="error-msg">{{errorMessage}}</view>
+    <view class="login-btn" bindtap="toAdd">添加</view>
+  </view>
+  <view class="login-bg">
+    <image class="" src="../../assets/images/login-bg.png"/>
+  </view>
+</view>

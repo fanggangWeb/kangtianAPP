@@ -1,7 +1,15 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/home/index",
-    "pages/bar/index"
+    "pages/personInfo/personInfo",
+    "pages/bar/index",
+    "pages/editPassword/editPassword",
+    "pages/addAccount/addAccount",
+    "pages/switchAccount/switchAccount",
+    "pages/customerArea/customerArea",
+    "pages/customerFile/customerFile",
+    "pages/customerFile/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,7 +26,7 @@
     "list": [
       {
         "selectedIconPath": "/assets/images/tab-gzt1.png",  
-        "iconPath": "/assets/images/tabgzt.png",  
+        "iconPath": "/assets/images/tab-gzt.png",  
         "pagePath": "pages/home/index",
         "text": "工作台"
       },
@@ -31,8 +39,8 @@
       {
         "selectedIconPath": "/assets/images/tab-geren1.png",  
         "iconPath": "/assets/images/tab-geren.png",  
-        "pagePath": "pages/bar/index",
-        "text": "个人消息"
+        "pagePath": "pages/personInfo/personInfo",
+        "text": "个人信息"
       }
     ]
   },

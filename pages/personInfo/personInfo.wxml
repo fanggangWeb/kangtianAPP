@@ -1,0 +1,71 @@
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<view class="container" style='padding-top: {{height}}px'>
+  <view class="blue-area">
+    <view class="avatar-con" bindtap="changeAvatar">
+      <image class="avatar-image" src="{{avatarUrl}}"/>
+      <image class="set-icon" src="../../assets/images/personInfo/settings.png"/>
+    </view>
+    <view class="text-con">
+      <view class="username">张三丰</view>
+      <view class="status" bindtap="showList">
+        <view class="status-icon  green"></view>
+        <view class="status-name">上线</view>
+        <image class="status-arrow" src="../../assets/images/personInfo/arrow-down.png"></image>
+        <!-- <view class="status-name">上线</view> -->
+      </view>
+      <view wx:if="{{statusState}}" class="status-list">
+        <view wx:for="{{statusList}}" class="status-item" bindtap="chooseStatus" data-item="{{item}}">
+          <view class="{{item.color + ' status-icon'}}"></view>
+          <view class="status-item-name">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="options">
+    <view class="line hign-line">
+      <view class="icon">
+        <image class="" src="../../assets/images/personInfo/yejitongji.png"/>
+      </view>
+      <view class="text">业绩统计</view>
+    </view>
+    <view class="bg-line"></view>
+    <view class="line">
+      <view class="icon">
+        <image class="" src="../../assets/images/personInfo/kaishiyingye.png"/>
+      </view>
+      <view class="text" style="color:#38C068">开始营业</view>
+    </view>
+    <view class="bg-line"></view>
+    <view class="line">
+      <view class="icon">
+        <image class="" src="../../assets/images/personInfo/kaishiyingye.png"/>
+      </view>
+      <view class="text" style="color:#E29D19">结束营业</view>
+    </view>
+    <view class="bg-line"></view>
+
+    <view class="line border-line" bindtap="editPassword">
+      <view class="icon">
+        <image class="" src="../../assets/images/personInfo/genggaimima.png"/>
+      </view>
+      <view class="text">更改密码</view>
+    </view>
+
+    <view class="line border-line" bindtap="switchAccount">
+      <view class="icon">
+        <image class="" src="../../assets/images/personInfo/qiehuanzhanghao.png"/>
+      </view>
+      <view class="text">切换账号</view>
+    </view>
+
+    <view class="line border-line" bindtap="quitLogin">
+      <view class="icon">
+        <image class="" src="../../assets/images/personInfo/tuichudenglu.png"/>
+      </view>
+      <view class="text" style="color: #F35E5E">退出登录</view>
+    </view>
+    
+
+
+  </view>
+</view>

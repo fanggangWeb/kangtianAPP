@@ -1,0 +1,19 @@
+.noData{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.noData image{
+  width:262rpx;
+  height: 193rpx;
+  margin:0rpx 0 36rpx 0;
+}
+.noData view{
+  font-size:28rpx;
+  font-weight:bold;
+  line-height:40rpx;
+  color:rgba(196,196,196,1);
+  margin-bottom: 80rpx;
+}

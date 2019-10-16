@@ -1,5 +1,5 @@
-<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
-<view class="container" style='margin-top: {{height}}px'>
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<view class="container" style='padding-top: {{height}}px'>
   <view class="content">
     <view class="swiper">
       <swiper indicator-dots="{{indicatorDots}}" data-item="{{item}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}" bindtap="handleClick" bindchange="switchChange">

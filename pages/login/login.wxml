@@ -1,0 +1,27 @@
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<view class="container" style='padding-top: {{height}}px'>
+  <view class="content">
+    <view class="big-title">登录</view>
+    <view class="name">康田置业销售部</view>
+    <view class="logo">
+      <image class="" src="../../assets/images/login-logo.png"/>
+    </view>
+    <view class="input-box login-box">
+      <view class="input-icon">
+        <image class="" src="../../assets/images/login-user.png"/>
+      </view>
+      <input type="text" placeholder="输入账号" bindinput="accountInput" placeholder-class="place-style"/>
+    </view>
+    <view class="input-box pass-box">
+      <view class="input-icon">
+        <image class="" src="../../assets/images/login-pass.png"/>
+      </view>
+      <input type="password" placeholder="输入密码" bindinput="passInput" placeholder-class="place-style"/>
+    </view>
+    <view class="error-msg">{{errorMessage}}</view>
+    <view class="login-btn" bindtap="toLogin">登录</view>
+  </view>
+  <view class="login-bg">
+    <image class="" src="../../assets/images/login-bg.png"/>
+  </view>
+</view>

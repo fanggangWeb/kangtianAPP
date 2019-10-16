@@ -25,8 +25,8 @@ Page({
       { icon: "../../assets/images/home/fenzu.png", name: "客户分组", path: ""},
       { icon: "../../assets/images/home/daiban.png", name: "顾问代班", path: ""},
       { icon: "../../assets/images/home/guwen.png", name: "更换顾问", path: ""},
-      { icon: "../../assets/images/home/dangan.png", name: "客户档案", path: ""},
-      { icon: "../../assets/images/home/kehuqu.png", name: "客户区", path: ""},
+      { icon: "../../assets/images/home/dangan.png", name: "客户档案", path: "../customerFile/customerFile"},
+      { icon: "../../assets/images/home/kehuqu.png", name: "客户区", path: "../customerArea/customerArea"},
       { icon: "../../assets/images/home/qiatanshi.png", name: "洽谈室", path: ""},
     ],
     // 业绩统计菜单
@@ -35,7 +35,7 @@ Page({
       { icon: "../../assets/images/home/lishiyeji.png", name: "历史业绩", path: ""},
     ],
     // 组件所需的参数
-    nvabarData: {
+    navbarData: {
       showCapsule: 0, //是否显示左上角图标   1表示显示    0表示不显示
       title: '康田置业售楼部', //导航栏 中间的标题
     },
@@ -65,6 +65,11 @@ Page({
   switchMenu (e) {
     // console.log(e)
     console.log(e.currentTarget.dataset.item.name)
+    var item = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: item.path
+    });
+      
   },
   // 文字滚动
   scrolltxt: function () {

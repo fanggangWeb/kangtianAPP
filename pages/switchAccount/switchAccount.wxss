@@ -1,0 +1,73 @@
+.container {
+  width: 100%;
+}
+.content {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 360rpx 100rpx 0 40rpx;
+  /* padding: 226rpx 60rpx 0 60rpx; */
+}
+.desc {
+  text-align: center;
+  font-size:  48rpx;
+  color: #333333;
+}
+.arrow {
+  display: flex;
+  margin-top: 36rpx;
+  justify-content: center;
+}
+.arrow image {
+  width: 24rpx;
+  height: 12rpx;
+}
+.account-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 64rpx;
+}
+.account {
+  width: 150rpx;
+  margin-left: 60rpx;
+  cursor: pointer;
+  margin-bottom: 40rpx;
+}
+.account-icon {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background: #396BEA;
+  
+}
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.account-name {
+  width: 100%;
+  margin-top: 32rpx;
+  font-size: 32rpx;
+  color: #666666;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 添加账号的样式 */
+.account-text .text {
+  width: 100%;
+  height: 75rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+.text1 {
+  align-items: flex-end;
+}
+.text2 {
+  align-items: flex-start;
+}
