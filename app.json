@@ -9,7 +9,8 @@
     "pages/switchAccount/switchAccount",
     "pages/customerArea/customerArea",
     "pages/customerFile/customerFile",
-    "pages/customerFile/detail/detail"
+    "pages/customerFile/detail/detail",
+    "pages/customerFile/edit/edit"
   ],
   "window": {
     "backgroundTextStyle": "light",

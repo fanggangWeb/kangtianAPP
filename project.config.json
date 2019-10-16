@@ -103,6 +103,13 @@
 					"id": -1,
 					"name": "客户档案_详情",
 					"pathName": "pages/customerFile/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "客户档案 编辑",
+					"pathName": "pages/customerFile/edit/edit",
 					"scene": null
 				}
 			]

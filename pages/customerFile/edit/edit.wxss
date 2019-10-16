@@ -6,7 +6,7 @@
   width: 100%;
   background: white;
   box-sizing: border-box;
-  padding: 0 30rpx 40rpx 30rpx;
+  padding: 0 40rpx 40rpx 30rpx;
 }
 .avatar-line {
   width: 100%;
@@ -22,29 +22,27 @@
   border-radius: 50%;
   background: #ECEFF4;
 }
-.button {
-  width: 180rpx;
-  height: 100rpx;
-  border-radius: 50rpx;
-  font-size: 32rpx;
-  line-height: 100rpx;
-  text-align: center;
+.avatar-text {
   margin-left: auto;
-  color: white;
-  background: #396BEA;
-  cursor: pointer;
+  text-align: right;
+  color: #333333;
+  font-size: 34rpx;
 }
 .line {
   width: 100%;
-  height: 70rpx;
-  line-height: 70rpx;
+  height: 120rpx;
+  line-height: 120rpx;
   display: flex;
   flex-wrap: nowrap;
+  border-bottom: 2rpx solid #ECEFF4;
+}
+.line:first-child {
+  border-top: 2rpx solid #ECEFF4;
 }
 .line .name {
   width: 140rpx;
   color: #999999;
-  font-size: 32rpx;
+  font-size: 34rpx;
 
   overflow: hidden;
   white-space: nowrap;
@@ -52,13 +50,16 @@
 }
 .line .value {
   width: calc(100% - 170rpx);
+  height: 100%;
   margin-left: auto;
   text-align: right;
   color: #333333;
-  font-size: 32rpx;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  line-height: 120rpx;
+  font-size: 34rpx;
+}
+.value .picker-value {
+  width: 100%;
+  height: 100%;
 }
 .divide-line {
   width: 100%;
@@ -113,4 +114,5 @@
   border-radius: 40rpx;
   color: white;
   margin-top: 80rpx;
+  cursor: pointer;
 }

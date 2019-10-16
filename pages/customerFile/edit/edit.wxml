@@ -1,0 +1,47 @@
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<!-- 暂无数据 -->
+<!-- <import src="/pages/no_data/index.wxml" /> -->
+<view class="container" style='padding-top: {{height}}px'>
+  <view class="info-con">
+    <view class="avatar-line" bindtap="changeAvatar">
+      <view class="avatar">
+        <image class="avatar-image" src="/assets/images/text.jpg"/>
+      </view>
+      <view class="avatar-text">更换头像</view>
+    </view>
+    <view class="line-con">
+      <view class="line">
+        <view class="name">姓名</view>
+        <input class="value" value="{{detailInfo.name}}" bindinput="nameChange"></input>
+      </view>
+      <view class="line">
+        <view class="name">电话</view>
+        <input class="value" value="{{detailInfo.phone}}"></input>
+      </view>
+      <view class="line">
+        <view class="name">客户等级</view>
+        <picker class="value" bindchange="levelChange" value="{{vipIndex}}" range="{{vipList}}" range-key="name">
+          <view class="picker-value">
+            {{vipList[vipIndex].name}}
+          </view>
+        </picker>
+        <!-- <view class="value" value="{{detailInfo.level}}">VIP1</view> -->
+      </view>
+      <view class="line">
+        <view class="name">职业</view>
+        <input class="value" value="{{detailInfo.career}}"></input>
+      </view>
+      <view class="line">
+        <view class="name">职位</view>
+        <input class="value" value="{{detailInfo.position}}"></input>
+      </view>
+      <view class="line">
+        <view class="name">职业顾问</view>
+        <input class="value" value="{{detailInfo.consultant}}"></input>
+      </view>
+    </view>
+    
+    <view class="big-btn">保存</view>
+  </view>
+  
+</view>
