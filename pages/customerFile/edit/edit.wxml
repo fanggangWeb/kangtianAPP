@@ -36,8 +36,13 @@
         <input class="value" value="{{detailInfo.position}}"></input>
       </view>
       <view class="line">
-        <view class="name">职业顾问</view>
-        <input class="value" value="{{detailInfo.consultant}}"></input>
+        <view class="name">置业顾问</view>
+        <!-- <input class="value" value="{{detailInfo.consultant}}"></input> -->
+        <picker class="value" bindchange="consultantChange" value="{{consultantIndex}}" range="{{consultantList}}" range-key="name">
+          <view class="picker-value">
+            {{consultantList[consultantIndex].name}}
+          </view>
+        </picker>
       </view>
     </view>
     

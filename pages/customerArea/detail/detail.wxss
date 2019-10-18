@@ -1,0 +1,102 @@
+@import "/assets/wxss/common.wxss";
+.container {
+  width: 100%;
+}
+.info-con {
+  width: 100%;
+  background: white;
+  box-sizing: border-box;
+  padding: 0 30rpx 40rpx 30rpx;
+}
+.avatar-line {
+  width: 100%;
+  height: 150rpx;
+  padding: 40rpx 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.avatar, .avatar-image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background: #ECEFF4;
+}
+.button {
+  width: 180rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  text-align: center;
+  margin-left: auto;
+  color: white;
+  background: #396BEA;
+  cursor: pointer;
+}
+.button.grey-button {
+  background: #CBCBCB;
+  color: white;
+}
+.line {
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.line .name {
+  width: 200rpx;
+  color: #999999;
+  font-size: 32rpx;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.line .value {
+  width: calc(100% -220rpx);
+  margin-left: auto;
+  text-align: right;
+  color: #333333;
+  font-size: 32rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.divide-line {
+  width: 100%;
+  height: 10rpx;
+  background: #ECEFF4;
+}
+/* 下方的操作按钮的包裹栏 */
+.desc-con {
+  width: 100%;
+  padding: 0 30rpx 20rpx 30rpx;
+  background: white;
+  box-sizing: border-box;
+}
+.picker-line {
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 34rpx;
+  color: #333333;
+  border-bottom: 2rpx solid #ECEFF4;
+}
+.picker-holder {
+  width: 100%;
+  height: 100%;
+}
+
+/* 大的按钮 */
+.big-btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #396BEA;
+  border-radius: 40rpx;
+  color: white;
+  margin-top: 80rpx;
+}

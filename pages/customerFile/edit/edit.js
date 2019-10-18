@@ -25,7 +25,12 @@ Page({
       {id:8, name:"vip8"},
       {id:9, name:"vip9"},
     ],
+    consultantList: [
+      {id: 1, name: "张三丰"},
+      {id: 2, name: "李四"}
+    ],
     vipIndex: 0,
+    consultantIndex: 0,
     // 组件所需的参数
     navbarData: {
       showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
@@ -56,6 +61,11 @@ Page({
     console.log(e)
     this.setData({
       vipIndex: parseInt(e.detail.value)
+    })
+  },
+  consultantChange (e) {
+    this.setData({
+      consultantIndex: e.detail.value
     })
   },
   changeAvatar () {

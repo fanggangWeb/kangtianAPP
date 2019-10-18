@@ -61,7 +61,7 @@
   line-height: 100rpx;
   color: #333333;
   font-size: 32rpx;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 .place-style {
   color: #A0A5AE;

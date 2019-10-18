@@ -1,8 +1,7 @@
 //获取应用实例
 const app = getApp()
 import { fetch } from '../../utils/fetch'
-const { $Toast } = require('../../dist/base/index.js');
-const SUCCESS_OK = '200'
+let userInfo
 //Page Object
 Page({
   data: {
@@ -17,13 +16,13 @@ Page({
   },
   //options(Object)
   onLoad: function(options) {
-    
+    userInfo = wx.getStorageSync("userInfo");
   },
   onReady: function() {
     
   },
   onShow: function() {
-    
+    this.getCoustomerList()
   },
   onHide: function() {
 
@@ -38,30 +37,26 @@ Page({
     })
     // console.log(value)
   },
-  detailGo () {
-    // $Toast({
-    //   content: '成功的提示',
-    //   type: 'success'
-    // });
-    // wx.showToast({
-    //   title: "成功提示",
-    //   icon: 'success',
-    //   image: '',
-    //   duration: 2500,
-    // });
+  detailGo (e) {
   },
-  onPullDownRefresh: function () {
-    setTimeout(() => {
-      wx.stopPullDownRefresh()
-    }, 1000)
-    // this.getList()
-  },
-  onReachBottom: function () {
-    console.log(1111)
-    // this.setData({
-    //   page: this.data.page + 1 
-    // })
-    // this.getMoreList()
-  },
+  getCoustomerList () {
+    let data = {
+      userId: userInfo.id
+    }
+    fetch({
+      url: "/document/customerList",
+      method: "post",
+      data
+    }).then(res => {
+      if (res.code == 1) {
+        console.log(res)
+      } else {
+        wx.showModal({
+          title: '错误',
+          content: res.message,
+        });
+      }
+    })
+  }
 });
   

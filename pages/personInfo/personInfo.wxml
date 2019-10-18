@@ -8,14 +8,17 @@
     <view class="text-con">
       <view class="username">张三丰</view>
       <view class="status" bindtap="showList">
-        <view class="status-icon  green"></view>
-        <view class="status-name">上线</view>
+        <view class="{{'status-icon' + ' color'+status}}"></view>
+        <view class="status-name" wx:if="{{status == 0}}">离线</view>
+        <view class="status-name" wx:elif="{{status == 1}}">在线</view>
+        <view class="status-name" wx:elif="{{status == 2}}">忙碌</view>
+        <view class="status-name" wx:else="{{status == 3}}">离开</view>
         <image class="status-arrow" src="../../assets/images/personInfo/arrow-down.png"></image>
         <!-- <view class="status-name">上线</view> -->
       </view>
       <view wx:if="{{statusState}}" class="status-list">
         <view wx:for="{{statusList}}" class="status-item" bindtap="chooseStatus" data-item="{{item}}">
-          <view class="{{item.color + ' status-icon'}}"></view>
+          <view class="{{'color'+item.status + ' status-icon'}}"></view>
           <view class="status-item-name">{{item.name}}</view>
         </view>
       </view>

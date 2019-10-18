@@ -10,7 +10,9 @@
     "pages/customerArea/customerArea",
     "pages/customerFile/customerFile",
     "pages/customerFile/detail/detail",
-    "pages/customerFile/edit/edit"
+    "pages/customerFile/edit/edit",
+    "pages/no_data/index",
+    "pages/customerArea/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

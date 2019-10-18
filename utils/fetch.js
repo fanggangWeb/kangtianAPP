@@ -1,10 +1,8 @@
 /**
  * 封装http 请求方法
  */
-export const apiUrl = "" // 服务器api地址
-export const uploadUrl = "" // 统一上传文件地址
-export const loadCarUrl = ''
-export const unloadCarUrl = ''
+export const apiUrl = "http://94.191.108.118:8080/kang-interface" // 服务器api地址
+export const uploadUrl = "http://94.191.108.118:8080/kang-interface/common/upload" // 统一上传文件地址
 export const imageURL = '' // 统一图片地址
 export const fetch = (params) => {
   //返回promise 对象
@@ -39,19 +37,14 @@ export const fetch = (params) => {
         if (res.statusCode == 200) {
           // console.log(res)
           resolve(res.data)
-          if (res.data.state != 200 && res.data.state != 405) {
-            wx.showModal({
-              content: res.data.message
-            })
-          }
           // 状态码 401返回登录页面
-          if (res.data.state == 401) {
-            setTimeout(() => {
-              wx.reLaunch({
-                url: '../login/login'
-              })
-            },2000)
-          }
+          // if (res.data.state == 401) {
+          //   setTimeout(() => {
+          //     wx.reLaunch({
+          //       url: '../login/login'
+          //     })
+          //   },2000)
+          // }
         }
       },
       fail: function (error) {
@@ -91,21 +84,17 @@ export const uploadFetch = (params) => {
       success(res) {
         wx.hideLoading()
         res = res.data
+        console.log(res)
         res = JSON.parse(res)
-        if (res.state == 200) {
-          resolve(res)
-        } else {
-          wx.showModal({
-            content: res.message
-          })
-        }
-        if (res.state == 401) {
-          setTimeout(() => {
-            wx.reLaunch({
-              url: '../login/login'
-            })
-          },2000)
-        }
+  
+        resolve(res)
+        // if (res.state == 401) {
+        //   setTimeout(() => {
+        //     wx.reLaunch({
+        //       url: '../login/login'
+        //     })
+        //   },2000)
+        // }
       },
       fail (error) {
         wx.hideLoading()

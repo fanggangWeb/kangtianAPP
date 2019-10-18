@@ -7,7 +7,7 @@
       <view class="avatar">
         <image class="avatar-image" src="/assets/images/text.jpg"/>
       </view>
-      <view class="button" bindtap="goEdit">编辑</view>
+      <view class="button {{receiveState == true ? '' : 'grey-button'}}" bindtap="toReceive">接待</view>
     </view>
     <view class="line">
       <view class="name">姓名</view>
@@ -33,15 +33,26 @@
       <view class="name">置业顾问</view>
       <view class="value">张三丰</view>
     </view>
+    <view class="line">
+      <view class="name">上次接待评价</view>
+      <view class="value">三星级客户</view>
+    </view>
+    <view class="line">
+      <view class="name">等候时间</view>
+      <view class="value">2min</view>
+    </view>
   </view>
   <view class="divide-line"></view>
   <view class="desc-con">
-    <view class="desc-title">详细档案</view>
-    <view class="show-input">于2019年10月1日上午10点接待</view>
-    <!-- <input class="to-input" type="tex" placeholder-style="place-style" placeholder="请输入..."/> -->
-    <textarea class="to-input" placeholder="请输入...(限200字内)" placeholder-class="place-style"  maxlength="200"
-      bindinput="toInput">
-    </textarea>
-    <view class="big-btn">保存</view>
+    <picker class="picker-line" bindchange="handleChange" value="{{changeIndex}}" range="{{consultantList}}" range-key="name">
+      <view class="picker-holder">
+        更换置业顾问
+      </view>
+    </picker>
+    <picker class="picker-line" bindchange="substituteChange" value="{{substituteIndex}}" range="{{consultantList}}" range-key="name">
+      <view class="picker-holder">
+        其他顾问代班
+      </view>
+    </picker>
   </view>
 </view>

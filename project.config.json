@@ -1,13 +1,13 @@
 {
 	"description": "康田置业售楼部小程序",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": false,
 		"minified": false,
 		"newFeature": true,
 		"coverView": true,
-		"nodeModules": true,
+		"nodeModules": false,
 		"autoAudits": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
@@ -19,7 +19,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.4",
+	"libVersion": "2.7.7",
 	"appid": "wx3de00b51d75f751a",
 	"projectname": "ECharts%20Demo",
 	"simulatorType": "wechat",
@@ -45,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -121,6 +121,14 @@
 					"id": -1,
 					"name": "客户档案 编辑",
 					"pathName": "pages/customerFile/edit/edit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "客户区——详情",
+					"pathName": "pages/customerArea/detail/detail",
+					"query": "",
 					"scene": null
 				}
 			]

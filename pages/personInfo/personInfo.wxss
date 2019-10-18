@@ -64,19 +64,19 @@ page {
   border-radius: 50%;
   background: white;
 }
-.status-icon.green {
+.status-icon.color1 {
   background: #3CDC4B;
 }
-.status-icon.red {
+.status-icon.color2 {
   background: #E4554E;
 }
-.status-icon.purple {
+.status-icon.color3 {
   background: #594EE4;
 }
-.status-icon.grey {
+.status-icon.color0 {
   background: #B0B0B0;
 }
-.status-icon.white {
+.status-icon.colorcancel {
   background: #ececec;
 }
 .status-name {

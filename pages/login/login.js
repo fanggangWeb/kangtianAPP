@@ -1,7 +1,6 @@
 //获取应用实例
 const app = getApp()
-import { fetch } from '../../utils/fetch'
-const SUCCESS_OK = '200'
+import { fetch, apiUrl } from '../../utils/fetch'
 //Page Object
 Page({
   data: {
@@ -58,7 +57,27 @@ Page({
       })
       return
     }
-
+    let data = {
+      username: this.data.account,
+      password: this.data.password
+    }
+    fetch({
+      url: "/common/login",
+      method: "post",
+      data: data
+    }).then(res => {
+      if (res.code == 1) {
+        wx.setStorageSync("userInfo", res.data)
+        wx.switchTab({
+          url: '../home/index'
+        });
+      } else {
+        wx.showModal({
+          title: '错误',
+          content: res.data.message,
+        });
+      }
+    })
   }
 });
   

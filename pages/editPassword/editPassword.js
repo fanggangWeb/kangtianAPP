@@ -1,7 +1,7 @@
 //获取应用实例
 const app = getApp()
-import { fetch } from '../../utils/fetch'
-const SUCCESS_OK = '200'
+import { fetch, apiUrl } from '../../utils/fetch'
+let userInfo
 //Page Object
 Page({
   data: {
@@ -18,7 +18,7 @@ Page({
   },
   //options(Object)
   onLoad: function(options) {
-    
+    userInfo = wx.getStorageSync("userInfo")
   },
   onReady: function() {
     
@@ -76,6 +76,35 @@ Page({
       })
       return
     }
+    let data = {
+      id: userInfo.id,
+      password: this.data.oldPassword,
+      newPassword: this.data.password
+    }
+    fetch({
+      url: "/common/changePassword",
+      method: "post",
+      data: data
+    }).then(res => {
+      if (res.code == 1) {
+        wx.showToast({
+          title: '修改成功',
+          icon: 'success',
+          duration: 2500
+        });
+        setTimeout(() => {
+          wx.removeStorageSync('userInfo');
+          wx.redirectTo({
+            url: '/pages/login/login'
+          });
+        }, 1000);
+      } else {
+        wx.showModal({
+          title: "错误",
+          content: res.message,
+        });
+      }
+    })
   },
 });
   
