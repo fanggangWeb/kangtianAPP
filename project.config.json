@@ -1,14 +1,25 @@
 {
 	"description": "康田置业售楼部小程序",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": false,
 		"minified": false,
-		"newFeature": true
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.0",
+	"libVersion": "2.4.4",
 	"appid": "wx3de00b51d75f751a",
 	"projectname": "ECharts%20Demo",
 	"simulatorType": "wechat",

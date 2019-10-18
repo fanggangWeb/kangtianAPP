@@ -3,6 +3,6 @@
   "backgroundTextStyle": "dark",
   "usingComponents": {
     "nav-bar": "/components/navbar/index",
-    "i-toast": "../../dist/toast/index"
+    "i-toast": "/dist/toast/index"
   }
 }
