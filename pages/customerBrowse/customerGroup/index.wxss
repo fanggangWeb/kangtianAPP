@@ -1,26 +1,46 @@
-.customer-model{
+.container{
   width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  background: rgba(0,0,0,0.4);
-
 }
-.model-content{
-  background-color: #fff;
-  width:690rpx;
-  padding:80rpx 88rpx;
-  border-radius:10rpx;
-  position: relative;
+view{
+  box-sizing: border-box
 }
-.center_2{
+.content{
+	padding-top: 50rpx;
+	padding-bottom: 100rpx;
+}
+/* 操作按钮 */
+.btn-box{
+	padding: 0;
+}
+.operate-box{
   display: flex;
-  justify-content: center;
-  align-items: center
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  /* padding: 50rpx 30rpx; */
 }
-
+.operate-box view{
+  width:25%;
+  height:90rpx;
+  /* border-radius:24rpx; */
+  font-size:24rpx;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  line-height: 90rpx;
+}
+.operate-box .operate-item1{
+  background:rgba(75,131,233,1);
+}
+.operate-box .operate-item2{
+  background:rgba(180,93,235,1);
+}
+.operate-box .operate-item3{
+  background:rgba(55,226,160,1);
+}
+.operate-box .operate-item4{
+  background:rgba(237,214,57,1);
+}
 /* 客户标题 */
 .title{
   text-align: left;
@@ -28,12 +48,16 @@
   font-size:36rpx;
   font-weight:bold;
   color:rgba(51,51,51,1);
+  margin-bottom: 52rpx;
   width: 100%;
-  margin-bottom: 26rpx;
+  padding: 0 30rpx;
 }
 /* 客户列表 */
 .customer-box{
-  margin-bottom: 60rpx
+  padding-left: 30rpx
+}
+scroll-view{
+  white-space:nowrap;
 }
 .customer-item{
   width:162rpx;
@@ -44,10 +68,6 @@
   box-shadow:0px 6rpx 12rpx rgba(0,0,0,0.04);
   display: inline-block;
   margin-right: 14rpx;
-  margin-bottom: 14rpx
-}
-.customer-item:nth-child(3n){
-  margin-right: 0
 }
 .customer-header{
   position: relative;
@@ -58,6 +78,14 @@
   height:160rpx;
   border-radius:4rpx;
   
+}
+.customer-header .deal-img{
+  width: 90rpx;
+  height: 90rpx;
+  position: absolute;
+  right: 6rpx;
+  bottom: 6rpx;
+  z-index: 9
 }
 .change-box{
   width: 30rpx;
@@ -75,6 +103,24 @@
 .change-ok-img{
   width: 22rpx;
   height: 17rpx;
+}
+.customer-name{
+  padding: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid rgba(238,238,238,1);
+}
+.customer-name text{
+  font-size:24rpx;
+  font-weight:bold;
+  line-height: 30rpx;
+  color:rgba(51,51,51,1);
+}
+.customer-name .vip-img{
+  width: 29rpx;
+  height: 22rpx;
+  margin-left: 10rpx;
 }
 .customer-info{
   padding: 13rpx 15rpx;
@@ -98,53 +144,24 @@
   line-height: 28rpx;
   color:rgba(0,0,0,1);
 }
-
-/* 选择 */
-.change-counselor{
- border-bottom: 1px solid rgba(57,107,234,1);
+.customer-info .c-info-item .c-info-name{
+  font-size:24rpx;
 }
-
-.change-counselor .picker{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15rpx 0;
+.customer-info .c-info-item .c-info-dot{
+  width:8rpx;
+  height:8rpx;
+  background:rgba(228,85,78,1);
+  border-radius:50%;
+  margin-left: 8rpx;
 }
-.change-counselor text{
-  font-size:32rpx;
-  font-weight:bold;
-  color:rgba(51,51,51,1);
+/* 已录客户 */
+.recorded-customer{
+  margin-bottom: 60rpx;
 }
-.change-counselor image{
-  width: 32rpx;
-  height: 20rpx;
+.recorded-customer scroll-view{
+  height:320rpx;
 }
-/* 按钮 */
-.submit-bottom{
-   width: 100%;
-  height:80rpx;
-  background:#396BEA;
-  box-shadow:0px 6rpx 12rpx rgba(11,107,232,0.25);
-  border-radius: 48rpx;
-  font-size: 32rpx;
-  line-height: 90rpx;
-  color: rgba(255, 255, 255, 1);
-  text-align: center;
-  margin-top:80rpx;
-
-}
-
-/* 关闭
- */
-.close{
-	width: 40rpx;
-	height: 40rpx;
-	position: absolute;
-	top: -60rpx;
-	right: 0;
-	
-}
-.close image{
-	width: 100%;
-	height: 100%;
+/* 新建房客 */
+.new-customer scroll-view{
+  height:240rpx;
 }

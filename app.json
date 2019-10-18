@@ -12,7 +12,11 @@
     "pages/customerFile/detail/detail",
     "pages/customerFile/edit/edit",
     "pages/no_data/index",
-    "pages/customerArea/detail/detail"
+    "pages/customerArea/detail/detail",
+	"pages/customerBrowse/index",
+	"pages/customerBrowse/customerGroup/index",
+	"pages/counselorList/index",
+	"pages/counselorList/searchResult/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

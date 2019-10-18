@@ -1,7 +1,10 @@
 <!-- 人员弹框 -->
-<view class='customer-model center_2'>
+<view class='customer-model center_2' style="padding-top: {{height}}px;"  wx:if='{{showModal}}'>
   <view class='model-content'>
-    <view class='title'>成员</view>
+	  <view class="close center_2" bindtap='closeModal'>
+		  <image src='/assets/images/browse/close.png'></image>
+	  </view>
+    <view class='title'>{{componentText.title}}</view>
     <view class='customer-box'>
         <view class='customer-item' wx:for='{{6}}' wx:key='{{index}}'>
           <view class='change-box center_2'>
@@ -20,13 +23,13 @@
     </view>
     <view class='title'>置业顾问</view>
     <view class="change-counselor">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key='name'>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{counselorList}}" range-key='name'>
         <view class="picker">
-          <text>{{array[index].name}}</text>
+          <text>{{counselorList[index].name}}</text>
           <image src='/assets/images/browse/arrow_down.png' mode='aspectFill'></image>
         </view>
       </picker>
     </view>
-    <view class='submit-bottom'>确定</view>
+    <view class='submit-bottom' catchtap='submit'>{{componentText.buttonText}}</view>
   </view>
 </view>

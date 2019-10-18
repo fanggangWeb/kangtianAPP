@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "客户浏览",
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "nav-bar": "/components/navbar/index",
+    "customer-modal": "/components/customerModel/index"
+  }
+}
