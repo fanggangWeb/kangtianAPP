@@ -1,0 +1,134 @@
+.customer-model{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background: rgba(0,0,0,0.4);
+
+}
+.model-content{
+  background-color: #fff;
+  width:690rpx;
+  padding:80rpx 88rpx;
+  border-radius:10rpx;
+}
+.center_2{
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+/* 客户标题 */
+.title{
+  text-align: left;
+  line-height:40rpx;
+  font-size:36rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  width: 100%;
+  margin-bottom: 26rpx;
+}
+/* 客户列表 */
+.customer-box{
+  margin-bottom: 60rpx
+}
+.customer-item{
+  width:162rpx;
+  background:rgba(255,255,255,1);
+  border:1rpx solid rgba(238,238,238,1);
+  border-radius:4rpx;
+  position: relative;
+  box-shadow:0px 6rpx 12rpx rgba(0,0,0,0.04);
+  display: inline-block;
+  margin-right: 14rpx;
+  margin-bottom: 14rpx
+}
+.customer-item:nth-child(3n){
+  margin-right: 0
+}
+.customer-header{
+  position: relative;
+  border-bottom: 1rpx solid rgba(238,238,238,1);
+}
+.customer-header, .customer-header .header-img{
+  width:160rpx;
+  height:160rpx;
+  border-radius:4rpx;
+  
+}
+.change-box{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  z-index: 9;
+  background-image: url('data:image/png;base64,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');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.change-ok-img{
+  width: 22rpx;
+  height: 17rpx;
+}
+.customer-info{
+  padding: 13rpx 15rpx;
+}
+.customer-info .c-info-item{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.c-info-mt{
+  margin-top: 10rpx;
+}
+.customer-info .c-info-item image{
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 12rpx;
+}
+.customer-info .c-info-item text{
+  font-size:20rpx;
+  font-weight:500;
+  line-height: 28rpx;
+  color:rgba(0,0,0,1);
+}
+
+/* 选择 */
+.change-counselor{
+ border-bottom: 1px solid rgba(57,107,234,1);
+}
+
+.change-counselor .picker{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+}
+.change-counselor text{
+  font-size:32rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+}
+.change-counselor image{
+  width: 32rpx;
+  height: 20rpx;
+}
+/* 按钮 */
+.submit-bottom{
+   width: 100%;
+  height:80rpx;
+  background:#396BEA;
+  box-shadow:0px 6rpx 12rpx rgba(11,107,232,0.25);
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  line-height: 90rpx;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  margin-top:80rpx;
+
+}
