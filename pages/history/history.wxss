@@ -1,0 +1,47 @@
+.container {
+  width: 100%;
+}
+.content {
+  width: calc(100% - 60rpx);
+  height: 560rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx 0 20rpx;
+  /* padding: 226rpx 60rpx 0 60rpx; */
+  margin: 0 auto;
+  border-radius: 4rpx;
+  border: 1rpx solid #EEEEEE;
+}
+/* 顶部标题和操作栏 */
+.top-bar {
+  width: 100%;
+  height: 160rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.echart-con {
+  width: 100%;
+  height: calc(100% - 160rpx);
+}
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.login-bg {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 258rpx;
+}
+.login-bg image{
+  width: 100%;
+  height: 100%;
+}

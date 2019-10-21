@@ -1,10 +1,11 @@
 //获取应用实例
 const app = getApp()
-import { fetch, uploadFetch,apiUrl } from '../../utils/fetch'
+import { fetch, uploadFetch,apiUrl, imageURL } from '../../utils/fetch'
 let userInfo
 //Page Object
 Page({
   data: {
+    imageURL: imageURL,
     avatarUrl: "",
     statusList: [
       {color: "green", name: "上线", status: "1"},
@@ -27,7 +28,7 @@ Page({
     // console.log(wx.getStorageSync("userInfo"))
     userInfo = wx.getStorageSync("userInfo")
     this.setData({
-      avatarUrl: apiUrl + userInfo.imgPath
+      avatarUrl: userInfo.imgPath
     })
   },
   onReady: function() {

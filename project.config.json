@@ -45,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 15,
 			"list": [
 				{
 					"id": -1,
@@ -142,6 +142,20 @@
 					"id": -1,
 					"name": "职业顾问",
 					"pathName": "pages/counselorList/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "今日业绩",
+					"pathName": "pages/today/today",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "历史销售业绩",
+					"pathName": "pages/history/history",
 					"scene": null
 				}
 			]

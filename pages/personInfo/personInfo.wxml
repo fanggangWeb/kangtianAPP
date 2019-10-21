@@ -2,7 +2,7 @@
 <view class="container" style='padding-top: {{height}}px'>
   <view class="blue-area">
     <view class="avatar-con" bindtap="changeAvatar">
-      <image class="avatar-image" src="{{avatarUrl}}"/>
+      <image class="avatar-image" src="{{imageURL + avatarUrl}}"/>
       <image class="set-icon" src="../../assets/images/personInfo/settings.png"/>
     </view>
     <view class="text-con">

@@ -1,0 +1,15 @@
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<view class="container" style='padding-top: {{height}}px'>
+  
+  <view class="content">
+    <view class="top-bar">
+      <view class="title">历史销售业绩</view>
+    </view>
+    <view class="echart-con">
+      <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+    </view>
+  </view>
+  <view class="login-bg">
+    <image class="" src="../../assets/images/login-bg.png"/>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+}
+.content {
+  width: 100%;
+  height: 690rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx 0 30rpx;
+  /* padding: 226rpx 60rpx 0 60rpx; */
+
+}
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.login-bg {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 258rpx;
+}
+.login-bg image{
+  width: 100%;
+  height: 100%;
+}

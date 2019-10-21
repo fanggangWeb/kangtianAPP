@@ -1,7 +1,12 @@
 <nav-bar navbar-data='{{navbarData}}'></nav-bar>
 <view class="container" style='padding-top: {{height}}px'>
-  <view class="search">
+  <!-- <view class="search">
     <input type="text" bindchange="toSearch" confirm-type="search" placeholder-class="input-style" placeholder="请输入电话号码"/>
+  </view> -->
+  <view class="tabbar">
+    <view class="tab-con">
+      <view class="{{(item.id==tabValue?'active':'') + ' tab'}}" wx:for="{{tabList}}" wx:key="index" data-item="{{item}}" data-item="{{item}}" bindtap="changeTab">{{item.name}}</view>
+    </view>
   </view>
   <view class="content">
     <view class="lengend">

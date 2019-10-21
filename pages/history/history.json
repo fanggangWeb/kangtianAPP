@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "康田置业售楼部",
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "nav-bar": "/components/navbar/index",
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
+}

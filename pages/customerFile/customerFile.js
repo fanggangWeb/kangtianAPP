@@ -7,6 +7,7 @@ Page({
   data: {
     searchValue: "",
     customerList: [1,2,3,4,5,5,5,5,5,5,5,5,5],
+    
     // 组件所需的参数
     navbarData: {
       showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
