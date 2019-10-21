@@ -45,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -129,6 +129,19 @@
 					"name": "客户区——详情",
 					"pathName": "pages/customerArea/detail/detail",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "客户浏览",
+					"pathName": "pages/customerBrowse/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "职业顾问",
+					"pathName": "pages/counselorList/index",
 					"scene": null
 				}
 			]
