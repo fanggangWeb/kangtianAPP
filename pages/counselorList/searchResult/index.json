@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "搜索结果",
+  "navigationBarTitleText": "顾问详情",
   "backgroundTextStyle": "dark",
   "usingComponents": {
     "nav-bar": "/components/navbar/index"

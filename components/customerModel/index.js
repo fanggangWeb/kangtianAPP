@@ -1,4 +1,4 @@
-// components/customerModel/index.js
+import {imageURL} from '../../utils/fetch'
 Component({
 	/**
 	 * 组件的属性列表
@@ -36,12 +36,13 @@ Component({
 				})
 			},
 		},
-		componenttext: { //文字标题内容
+		componenttext: { //文字标题内容 //type 1 为拆分 2为关联
 			type: Object,
 			value: {},
 			observer: function(newVal, oldVal) {
 				this.setData({
-					componentText: newVal
+					componentText: newVal,
+					index:newVal.adviserIndex||0,
 				})
 			},
 		}
@@ -56,6 +57,7 @@ Component({
 		counselorList: [], //职业顾问
 		componentText: {}, //文字标题内容 
 		showModal: false, //是否显示
+		imageUrl:imageURL
 	},
 
 	/**
@@ -68,15 +70,39 @@ Component({
 			})
 		},
 		submit() {
-			console.log(this.data.showModal)
+			// 选中的人
+			let list=[];
+			this.data.dataList.forEach((v,i)=>{
+				if(v.check){
+					list.push(v.visitorId);
+				}
+			})
+			if(list.length==0){
+				wx.showToast({
+				  title: '请选择人员',
+				  duration: 2000,
+				  icon:'none'
+				})
+				return;
+			}
 			// 确定
 			this.triggerEvent('submitmodal', {
-				data: 111
+				checkedList:list,
+				counselorId:this.data.counselorList[this.data.index].propertyConsultantId,
+				type:this.data.componentText.type
 			})
 		},
 		// 关闭模态框
 		closeModal(){
 			this.triggerEvent('closemodal');
+		},
+		// 选择
+		checkItem(e){
+			let index = e.currentTarget.dataset.index;
+			let checkName='dataList.['+index+'].check';
+			this.setData({
+				[checkName]:!this.data.dataList[index].check
+			})
 		}
 	}
 })

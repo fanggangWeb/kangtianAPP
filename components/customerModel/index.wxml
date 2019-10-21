@@ -6,26 +6,26 @@
 	  </view>
     <view class='title'>{{componentText.title}}</view>
     <view class='customer-box'>
-        <view class='customer-item' wx:for='{{6}}' wx:key='{{index}}'>
+        <view class='customer-item' wx:for='{{dataList}}' wx:key='{{index}}' data-index='{{index}}' catchtap='checkItem'>
           <view class='change-box center_2'>
-            <image src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
+          	<image wx:if='{{item.check}}' src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
           </view>
           <view class='customer-header'>
-            <image src='/assets/images/no_data.png' mode='aspectFill' class='header-img'></image>
+            <image src='{{imageUrl+item.visitorImg}}' mode='aspectFill' class='header-img'></image>
           </view>
           <view class='customer-info'>
             <view class='c-info-item'>
               <image src='/assets/images/browse/time.png' mode='aspectFill' ></image>
-              <text>10次</text>
+              <text>{{item.visitCnt}}次</text>
             </view>
           </view>
         </view>
     </view>
     <view class='title'>置业顾问</view>
     <view class="change-counselor">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{counselorList}}" range-key='name'>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{counselorList}}" range-key='userName'>
         <view class="picker">
-          <text>{{counselorList[index].name}}</text>
+          <text>{{counselorList[index].userName}}</text>
           <image src='/assets/images/browse/arrow_down.png' mode='aspectFill'></image>
         </view>
       </picker>

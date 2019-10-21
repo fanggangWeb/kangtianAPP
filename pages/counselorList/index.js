@@ -1,13 +1,13 @@
 //获取应用实例
 const app = getApp()
-import { fetch } from '../../utils/fetch'
+import { fetch,imageURL } from '../../utils/fetch'
 const { $Toast } = require('../../dist/base/index.js');
 const SUCCESS_OK = '200'
 //Page Object
 Page({
   data: {
     searchValue: "",
-    customerList: [1,2,3,4,5,5,5,5,5,5,5,5,5],
+    counselorList: [],
     // 组件所需的参数
     navbarData: {
       showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
@@ -17,7 +17,7 @@ Page({
   },
   //options(Object)
   onLoad: function(options) {
-    
+    this.getAdviserList();
   },
   onReady: function() {
     
@@ -39,23 +39,40 @@ Page({
     // console.log(value)
   },
   // 点击顾问
-  detailGo () {
+  detailGo (e) {
+	let index = e.currentTarget.dataset.index;
+	wx.setStorageSync('counselorObj',this.data.counselorList[index]);
 	wx.navigateTo({
 		url:'/pages/counselorList/searchResult/index'
 	})
+	
   },
-  onPullDownRefresh: function () {
-    setTimeout(() => {
-      wx.stopPullDownRefresh()
-    }, 1000)
-    // this.getList()
-  },
-  onReachBottom: function () {
-    console.log(1111)
-    // this.setData({
-    //   page: this.data.page + 1 
-    // })
-    // this.getMoreList()
+  // 获取置业顾问
+  getAdviserList(){
+  	let data = {
+  		companyId:wx.getStorageSync("userInfo").companyId
+  	}
+  	fetch({
+  		url: "/manage/getAdviserList",
+  		method: "post",
+  		data: data
+  	}).then(res => {
+  		if (res.code == 1) {
+  			// 获取在线的
+  			res.data.forEach((v, i) => {
+  				v.imgPath = imageURL + v.imgPath;
+  			})
+  			this.setData({
+  				counselorList: res.data
+  			})
+  		} else {
+  			wx.showModal({
+  				title: '错误',
+  				content: res.message,
+  				showCancel:false
+  			});
+  		}
+  	})
   },
 });
   

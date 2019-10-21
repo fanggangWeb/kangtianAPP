@@ -1,47 +1,47 @@
 <nav-bar navbar-data='{{navbarData}}'></nav-bar>
 <view class='container' style='padding-top: {{height}}px'>
 	<view class="centent">
-  <!-- 已经录入 -->
-  <view class='title'>置业顾问</view>
-  <view class='customer-box counselor'>
-    <view class='customer-item'>
-      <view class='customer-header'>
-        <image src='/assets/images/no_data.png' mode='aspectFill' class='header-img'></image>
-      </view>
-      <view class='customer-info'>
-        <view class='c-info-item'>
-          <image src='/assets/images/browse/name.png' mode='aspectFill' ></image>
-          <text class='c-info-name'>李茂芹</text>
-          <text class='c-info-dot'></text>
-        </view>
-        <view class='c-info-item c-info-mt'>
+		<!-- 已经录入 -->
+		<view class='title'>置业顾问</view>
+		<view class='customer-box counselor'>
+			<view class='customer-item'>
+				<view class='customer-header'>
+					<image src='{{counselorObj.imgPath}}' mode='aspectFill' class='header-img'></image>
+				</view>
+				<view class='customer-info'>
+					<view class='c-info-item'>
+						<image src='/assets/images/browse/name.png' mode='aspectFill'></image>
+						<text class='c-info-name'>{{counselorObj.userName}}</text>
+					</view>
+					<!-- <view class='c-info-item c-info-mt'>
           <image src='/assets/images/browse/phone.png' mode='aspectFill' ></image>
           <text>15185991447</text>
-        </view>
-      </view>
-    </view>
-  </view>
-  <!-- 新访客户 -->
-  <view class='title'>TA的客户（8）</view>
-  <view class='customer-box'>
-    <scroll-view scroll-x="true" >
-        <view class='customer-item' wx:for='{{6}}' wx:key='{{index}}'>
-          <view class='customer-header'>
-            <image src='/assets/images/no_data.png' mode='aspectFill' class='header-img'></image>
-          </view>
-          <view class='customer-info'>
-            <view class='c-info-item'>
-              <image src='/assets/images/browse/name.png' mode='aspectFill' ></image>
-              <text class='c-info-name'>李茂芹</text>
-              <text class='c-info-dot'></text>
-            </view>
-            <view class='c-info-item c-info-mt'>
-              <image src='/assets/images/browse/phone.png' mode='aspectFill' ></image>
-              <text>15185991447</text>
-            </view>
-          </view>
-        </view>
-    </scroll-view>
-  </view>
-  </view>
+        </view> -->
+				</view>
+			</view>
+		</view>
+		<!-- 新访客户 -->
+		<view class='title'>TA的客户（{{visitorList.length}}）</view>
+		<view class='customer-box' >
+			<scroll-view scroll-x="true" wx:if='{{visitorList.length>0}}'>
+				<view class='customer-item' wx:for='{{visitorList}}' wx:key='{{index}}'>
+					<view class='customer-header'>
+						<image src='{{item.visitorImg}}' mode='aspectFill' class='header-img'></image>
+					</view>
+					<view class='customer-info'>
+						<view class='c-info-item'>
+							<image src='/assets/images/browse/name.png' mode='aspectFill'></image>
+							<text class='c-info-name'>{{item.visitorNm||'未录入'}}</text>
+							<!-- <text class='c-info-dot'></text> -->
+						</view>
+						<!-- <view class='c-info-item c-info-mt'>
+							<image src='/assets/images/browse/phone.png' mode='aspectFill'></image>
+							<text>15185991447</text>
+						</view> -->
+					</view>
+				</view>
+			</scroll-view>
+			<view wx:else style='font-size:28rpx;'>暂无客户</view>
+		</view>
+	</view>
 </view>
