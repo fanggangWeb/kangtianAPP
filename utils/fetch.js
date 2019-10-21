@@ -1,9 +1,11 @@
 /**
  * 封装http 请求方法
  */
+//  export const apiUrl = "http://192.168.2.100:9001" // 服务器api地址
+// export const uploadUrl = "http://192.168.2.100:9001/common/upload" // 统一上传文件地址
 export const apiUrl = "http://94.191.108.118:8080/kang-interface" // 服务器api地址
 export const uploadUrl = "http://94.191.108.118:8080/kang-interface/common/upload" // 统一上传文件地址
-export const imageURL = '' // 统一图片地址
+export const imageURL = 'http://94.191.108.118:8080/kang-resource' // 统一图片地址
 export const fetch = (params) => {
   //返回promise 对象
   return new Promise((resolve, reject) => {

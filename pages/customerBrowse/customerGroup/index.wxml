@@ -4,27 +4,27 @@
 		<view class='title'>客户</view>
 		<view class='customer-box recorded-customer'>
 			<view class='customer-item'>
-				<view class='change-box center_2'>
+				<!-- <view class='change-box center_2'>
 					<image src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
-				</view>
+				</view> -->
 				<view class='customer-header'>
-					<image src='/assets/images/no_data.png' mode='aspectFill' class='header-img'></image>
-					<image src='/assets/images/browse/deal.png' mode='aspectFill' class='deal-img'></image>
+					<image src='{{imageUrl+memberData.visitorImg}}' mode='aspectFill' class='header-img'></image>
+					<!-- <image src='/assets/images/browse/deal.png' mode='aspectFill' class='deal-img'></image> -->
 				</view>
 				<view class='customer-name'>
-					<text>李茂芹</text>
-					<image src='/assets/images/vip2.png' mode='aspectFill' class='vip-img'></image>
+					<text>{{memberData.visitorName}}</text>
+					<image wx:if='{{memberData.visitorLevel}}' src='/assets/images/vip{{memberData.visitorLevel}}.png' mode='aspectFill' class='vip-img'></image>
 				</view>
 				<view class='customer-info'>
 					<view class='c-info-item'>
 						<image src='/assets/images/browse/name.png' mode='aspectFill'></image>
-						<text class='c-info-name'>李茂芹</text>
-						<text class='c-info-dot'></text>
+						<text class='c-info-name'>{{nowCounselor.realName}}</text>
+						<text wx:if='{{nowCounselor.status}}' class='c-info-dot c-info-dot{{nowCounselor.status}}'></text>
 					</view>
-					<view class='c-info-item c-info-mt'>
+					<!-- <view class='c-info-item c-info-mt'>
 						<image src='/assets/images/browse/time.png' mode='aspectFill'></image>
 						<text>10次</text>
-					</view>
+					</view> -->
 				</view>
 			</view>
 		</view>
@@ -32,20 +32,19 @@
 		<view class='title'>已有成员</view>
 		<view class='customer-box recorded-customer'>
 			<scroll-view scroll-x="true">
-				<view class='customer-item' wx:for='{{6}}' wx:key='{{index}}' catchlongpress='splitGroup' data-index='{{index}}'>
+				<view class='customer-item' wx:for='{{visitorList}}' wx:key='{{index}}' data-index='{{index}}' catchtap='checkItem' data-name='visitorList'>
 					<view class='change-box center_2'>
-						<image src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
+						<image wx:if='{{item.check}}' src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
 					</view>
 					<view class='customer-header'>
-						<image src='/assets/images/no_data.png' mode='aspectFill' class='header-img'></image>
-						<image src='/assets/images/browse/deal.png' mode='aspectFill' class='deal-img'></image>
+						<image src='{{imageUrl+item.visitorImg}}' mode='aspectFill' class='header-img'></image>
 					</view>
-					<view class='customer-info'>
+					<!-- <view class='customer-info'>
 						<view class='c-info-item'>
 							<image src='/assets/images/browse/time.png' mode='aspectFill'></image>
 							<text>10次</text>
 						</view>
-					</view>
+					</view> -->
 				</view>
 			</scroll-view>
 		</view>
@@ -53,18 +52,18 @@
 		<view class='title'>新访客户</view>
 		<view class='customer-box new-customer'>
 			<scroll-view scroll-x="true">
-				<view class='customer-item' wx:for='{{6}}' wx:key='{{index}}' catchlongpress='splitGroup' data-index='{{index}}'>
+				<view class='customer-item' wx:for='{{notEentered}}' wx:key='{{index}}'  data-index='{{index}}' catchtap='checkItem' data-name='notEentered'>
 					<view class='change-box center_2'>
-						<image src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
+						<image wx:if='{{item.check}}' src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
 					</view>
 					<view class='customer-header'>
-						<image src='/assets/images/no_data.png' mode='aspectFill' class='header-img'></image>
-						<image src='/assets/images/browse/deal.png' mode='aspectFill' class='deal-img'></image>
+						<image src='{{imageUrl+item.visitorImg}}' mode='aspectFill' class='header-img'></image>
+						<image wx:if='{{item.state>=2}}' src='/assets/images/browse/deal.png' mode='aspectFill' class='deal-img'></image>
 					</view>
 					<view class='customer-info'>
 						<view class='c-info-item'>
 							<image src='/assets/images/browse/time.png' mode='aspectFill'></image>
-							<text>10次</text>
+							<text>{{item.visitCnt}}次</text>
 						</view>
 					</view>
 				</view>

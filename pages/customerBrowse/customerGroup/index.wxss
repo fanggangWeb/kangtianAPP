@@ -154,6 +154,18 @@ scroll-view{
   border-radius:50%;
   margin-left: 8rpx;
 }
+.customer-info .c-info-item .c-info-dot0{
+	background:#B0B0B0
+}
+.customer-info .c-info-item .c-info-dot1{
+	background:#3CDC4B
+}
+.customer-info .c-info-item .c-info-dot2{
+	background:#E4554E
+}
+.customer-info .c-info-item .c-info-dot3{
+	background:#B0B0B0
+}
 /* 已录客户 */
 .recorded-customer{
   margin-bottom: 60rpx;

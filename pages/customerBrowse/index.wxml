@@ -2,51 +2,55 @@
 <view class='container' style='padding-top: {{height}}px'>
 	<view class="content">
 		<!-- 已经录入 -->
-		<view class='title'>已录客户</view>
-		<view class='customer-box recorded-customer'>
+		<view class='title' wx:if='{{entered.length>0}}'>已录客户</view>
+		<view class='customer-box recorded-customer' wx:if='{{entered.length>0}}'>
 			<scroll-view scroll-x="true">
-				<view class='customer-item' wx:for='{{6}}' wx:key='{{index}}' bindtap='skipPage' data-index='{{index}}'>
+				<view class='customer-item' wx:for='{{entered}}' wx:key='{{index}}' bindtap='skipPage' data-index='{{index}}'>
 				<!-- 	<view class='change-box center_2'>
 						<image src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
 					</view> -->
 					<view class='customer-header'>
-						<image src='/assets/images/no_data.png' mode='aspectFill' class='header-img'></image>
-						<image src='/assets/images/browse/deal.png' mode='aspectFill' class='deal-img'></image>
+						<image src='{{imageUrl+item.visitorImg}}' mode='aspectFill' class='header-img'></image>
+						<image wx:if='{{item.state>=2}}' src='/assets/images/browse/deal.png' mode='aspectFill' class='deal-img'></image>
 					</view>
 					<view class='customer-name'>
-						<text>李茂芹</text>
-						<image src='/assets/images/vip2.png' mode='aspectFill' class='vip-img'></image>
+						<text>{{item.visitorNm}}</text>
+						<image wx:if='{{item.level}}' src='/assets/images/vip{{item.level}}.png' mode='aspectFill' class='vip-img'></image>
 					</view>
 					<view class='customer-info'>
 						<view class='c-info-item'>
 							<image src='/assets/images/browse/name.png' mode='aspectFill'></image>
-							<text class='c-info-name'>李茂芹</text>
-							<text class='c-info-dot'></text>
+							<text class='c-info-name'>{{item.username}}</text>
+							<text wx:if='{{item.status}}' class='c-info-dot c-info-dot{{item.status}}'></text>
 						</view>
 						<view class='c-info-item c-info-mt'>
 							<image src='/assets/images/browse/time.png' mode='aspectFill'></image>
-							<text>10次</text>
+							<text>{{item.visitCnt}}次</text>
 						</view>
 					</view>
 				</view>
 			</scroll-view>
 		</view>
 		<!-- 新访客户 -->
-		<view class='title'>新访客户</view>
-		<view class='customer-box new-customer'>
+		<view class='title' wx:if='{{notEentered.length>0}}'>新访客户</view>
+		<view class='customer-box new-customer' wx:if='{{notEentered.length>0}}'>
 			<scroll-view scroll-x="true">
-				<view class='customer-item' wx:for='{{6}}' wx:key='{{index}}' catchlongpress='splitGroup' data-index='{{index}}'>
+				<view class='customer-item' wx:for='{{notEentered}}' wx:key='{{index}}' catchlongpress='splitGroup' data-index='{{index}}' catchtap='checkItem' data-name='notEentered'>
 					<view class='change-box center_2'>
-						<image src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
+						<image wx:if='{{item.check}}' src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
 					</view>
 					<view class='customer-header'>
-						<image src='/assets/images/no_data.png' mode='aspectFill' class='header-img'></image>
-						<image src='/assets/images/browse/deal.png' mode='aspectFill' class='deal-img'></image>
+						<image src='{{imageUrl+item.visitorImg}}' mode='aspectFill' class='header-img'></image>
+						<image wx:if='{{item.state>=2}}' src='/assets/images/browse/deal.png' mode='aspectFill' class='deal-img'></image>
 					</view>
 					<view class='customer-info'>
 						<view class='c-info-item'>
+							<image src='/assets/images/browse/name.png' mode='aspectFill'></image>
+							<text class='c-info-name'>{{item.username||'未绑定'}}</text>
+						</view>
+						<view class='c-info-item'>
 							<image src='/assets/images/browse/time.png' mode='aspectFill'></image>
-							<text>10次</text>
+							<text>{{item.visitCnt}}次</text>
 						</view>
 					</view>
 				</view>
