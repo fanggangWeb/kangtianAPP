@@ -122,9 +122,9 @@ function initChart (canvas, width, height) {
 //Page Object
 Page({
   data: {
-    errorMessage: "",
-    account: "",
-    password: "",
+    dateIndex: 0,
+    dateName: "今日",
+    dateList: ["今日", "本周", "本月", "本季度", "今年"], // 分别对应1,2,3,4,5
     ec: {
       onInit: initChart
     },
@@ -151,9 +151,18 @@ Page({
   onUnload: function() {
 
   },
+  dateChange (e) {
+    // console.log(e.detail.value)
+    this.setData({
+      dateIndex: parseInt(e.detail.value),
+      dateName: this.data.dateList[e.detail.value]
+    })
+    this.getData()
+    // console.log(this.data.dateList[this.data.dataIndex])
+  },
   getData () {
     let data = {
-      type: 1
+      type: this.data.dateIndex + 1
     }
     if (userInfo.role == 1) {
       data.propertyConsultantId = userInfo.id
@@ -166,10 +175,10 @@ Page({
       data: data
     }).then(res => {
       if (res.code == 1) {
-        let arr = [res.data.oldCustomerCount, res.data.newCustomerCount, res.data.selinaCount, res.data.assignCount]
+        let arr = [res.data.assignCount, res.data.selinaCount, res.data.newCustomerCount, res.data.oldCustomerCount]
         // console.log(arr)
-        // option.series[0].data = arr
-        // chart.setOption(option)
+        option.series[0].data = arr
+        chart.setOption(option)
       } else {
         wx.showModal({
           title: '错误',

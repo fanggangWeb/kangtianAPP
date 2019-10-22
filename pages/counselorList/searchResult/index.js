@@ -44,7 +44,7 @@ Page({
   getData(){
 	  let data = {
 	  	companyId:wx.getStorageSync("userInfo").companyId,
-		start:1,
+		start:0,
 		num:1000,
 		flag:0,
 		userId:this.data.counselorObj.propertyConsultantId

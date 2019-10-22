@@ -5,43 +5,43 @@
   <view class="info-con">
     <view class="avatar-line">
       <view class="avatar">
-        <image class="avatar-image" src="/assets/images/text.jpg"/>
+        <image class="avatar-image" src="{{imageURL + detailInfo.visitorImg}}"/>
       </view>
       <view class="button" bindtap="goEdit">编辑</view>
     </view>
     <view class="line">
       <view class="name">姓名</view>
-      <view class="value">王力宏</view>
+      <view class="value" wx:if="{{detailInfo.visitorNm}}">{{detailInfo.visitorNm}}</view>
     </view>
     <view class="line">
       <view class="name">电话</view>
-      <view class="value">1329719977</view>
+      <view class="value" wx:if="{{detailInfo.visitorPhone}}">{{detailInfo.visitorPhone}}</view>
     </view>
     <view class="line">
       <view class="name">客户等级</view>
-      <view class="value">VIP1</view>
+      <view class="value" wx:if="{{detailInfo.level != null}}">{{'vip'+detailInfo.level}}</view>
     </view>
     <view class="line">
       <view class="name">职业</view>
-      <view class="value">经营公司</view>
+      <view class="value" wx:if="{{detailInfo.job != null}}">{{detailInfo.job}}</view>
     </view>
     <view class="line">
       <view class="name">职位</view>
-      <view class="value">职员</view>
+      <view class="value" wx:if="{{detailInfo.post != null}}">{{detailInfo.post}}</view>
     </view>
     <view class="line">
       <view class="name">置业顾问</view>
-      <view class="value">张三丰</view>
+      <view class="value" wx:if="{{detailInfo.sysUserName != null}}">{{detailInfo.sysUserName}}</view>
     </view>
   </view>
   <view class="divide-line"></view>
   <view class="desc-con">
     <view class="desc-title">详细档案</view>
-    <view class="show-input">于2019年10月1日上午10点接待</view>
+    <view class="show-input" wx:for="{{documentList}}" data-item="{{item}}">{{item.context}} —— {{item.addTime}}</view>
     <!-- <input class="to-input" type="tex" placeholder-style="place-style" placeholder="请输入..."/> -->
     <textarea class="to-input" placeholder="请输入...(限200字内)" placeholder-class="place-style"  maxlength="200"
       bindinput="toInput">
     </textarea>
-    <view class="big-btn">保存</view>
+    <view class="big-btn" bindtap="saveDocument">保存</view>
   </view>
 </view>

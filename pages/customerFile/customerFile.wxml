@@ -3,21 +3,28 @@
 <import src="/pages/no_data/index.wxml" />
 <view class="container" style='padding-top: {{height}}px'>
   <view class="search">
-    <input type="text" bindchange="toSearch" confirm-type="search" placeholder-class="input-style" placeholder="请输入电话号码"/>
+    <input type="text" bindchange="toSearch" confirm-type="search" placeholder-class="input-style" placeholder="请输入客户姓名"/>
   </view>
   <view class="content">
     <view class="title">我的全部客户</view>
-    <block>
+    <block wx:if="{{noDataState}}">
       <template is="noData" data="{{text:'暂无相关数据',mtop:300}}"></template>
     </block>
     <view class="list-con">
-      <view class="list" wx:for="{{customerList}}" bindtap="detailGo">
+      <view class="list" wx:for="{{customerList}}" bindtap="detailGo" data-item="{{item}}">
         <view class="avatar">
-          <image class="avatar-image" src="../../assets/images/text.jpg"/>
-          <image src="../../assets/images/vip1-circle.png" class="vip-icon"/>
+          <image  class="avatar-image" src="{{imageURL + item.visitorImg}}"/>
+          <image wx:if="{{item.level == 1}}" src="../../assets/images/vip1-circle.png" class="vip-icon"/>
+          <image wx:if="{{item.level == 2}}" src="../../assets/images/vip2-circle.png" class="vip-icon"/>
+          <image wx:if="{{item.level == 3}}" src="../../assets/images/vip3-circle.png" class="vip-icon"/>
+          <image wx:if="{{item.level == 4}}" src="../../assets/images/vip4-circle.png" class="vip-icon"/>
+          <image wx:if="{{item.level == 5}}" src="../../assets/images/vip5-circle.png" class="vip-icon"/>
         </view>
-        <view class="username">
-          啦啦啦12313
+        <view wx:if="{{item.visitorNm}}" class="username">
+          {{item.visitorNm}}
+        </view>
+        <view wx:else class="username red">
+          未录入
         </view>
       </view>
     </view>

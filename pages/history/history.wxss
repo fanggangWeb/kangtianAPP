@@ -24,7 +24,27 @@
   font-weight: bold;
   color: #333333;
 }
-
+.select {
+  width: 140rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #396BEA;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ECEFF4;
+  margin-left: auto;
+}
+.arrow {
+  width: 16rpx;
+  height: 10rpx;
+  margin-left: 6rpx;
+  margin-top: 4rpx;
+}
+/* echarts的包裹层 */
 .echart-con {
   width: 100%;
   height: calc(100% - 160rpx);
@@ -33,7 +53,6 @@ ec-canvas {
   width: 100%;
   height: 100%;
 }
-
 .login-bg {
   position: fixed;
   left: 0;

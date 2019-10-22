@@ -1,3 +1,4 @@
+@import "/assets/wxss/common.wxss";
 .container {
   width: 100%;
 }

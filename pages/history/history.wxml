@@ -4,6 +4,13 @@
   <view class="content">
     <view class="top-bar">
       <view class="title">历史销售业绩</view>
+      <picker class="select" bindchange="dateChange" value="{{dateIndex}}" range="{{dateList}}">
+        <view class="select">
+          <view class="text">{{dateName}}</view> 
+          <image class="arrow" src="../../assets/images/arrow-down-blue.png"> 
+          </image>
+        </view>
+      </picker>
     </view>
     <view class="echart-con">
       <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>

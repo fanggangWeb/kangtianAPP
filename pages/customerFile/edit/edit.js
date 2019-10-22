@@ -1,29 +1,28 @@
 //获取应用实例
 const app = getApp()
-import { fetch } from '../../../utils/fetch'
+import { fetch, imageURL } from '../../../utils/fetch'
 const SUCCESS_OK = '200'
+let ID,userInfo
 //Page Object
 Page({
   data: {
     inputValue: "",
-    detailInfo: {
-      name: "王力宏",
-      phone: "1329719977",
-      level: "VIP1",
-      career: "经营公司",
-      position: "职员",
-      consultant: "张三丰"
-    },
+    detailInfo: {},
+    errorMessage: "",
+    // 详细信息
+    visitorImg: "",
+    visitorNm: "",
+    visitorPhone: "",
+    job: "",
+    post: "",
+
+    imageURL: imageURL,
     vipList: [
       {id:1, name:"vip1"},
       {id:2, name:"vip2"},
       {id:3, name:"vip3"},
       {id:4, name:"vip4"},
       {id:5, name:"vip5"},
-      {id:6, name:"vip6"},
-      {id:7, name:"vip7"},
-      {id:8, name:"vip8"},
-      {id:9, name:"vip9"},
     ],
     consultantList: [
       {id: 1, name: "张三丰"},
@@ -40,51 +39,106 @@ Page({
   },
   //options(Object)
   onLoad: function(options) {
+    ID = options.id
+    userInfo = wx.getStorageSync("userInfo");
+  },
+  onReady: function () {
     
   },
-  onReady: function() {
-    
+  onShow: function () {
+    this.getInfo()
   },
-  onShow: function() {
-    
-  },
-  onHide: function() {
+  onHide: function () {
 
   },
-  onUnload: function() {
+  onUnload: function () {
 
   },
   nameChange(e) {
-    console.log(e.detail.name)
-  },
-  levelChange (e) {
-    console.log(e)
     this.setData({
-      vipIndex: parseInt(e.detail.value)
+      visitorNm: e.detail.value
     })
   },
-  consultantChange (e) {
+  phoneChange (e) {
     this.setData({
-      consultantIndex: e.detail.value
+      visitorPhone: e.detail.value
     })
   },
-  changeAvatar () {
-    var that = this
-    wx.chooseImage({
-      count: 1, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths;
-        // uploadFetch({
-        //   filePath: tempFilePaths[0]
-        // }).then(res => {
-        //   that.setData({
-        //     positiveUrl: res.data,
-        //     positiveShow: false
-        //   })
-        // })
+  jobChange (e) {
+    this.setData({
+      job: e.detail.value
+    })
+  },
+  postChange (e) {
+    this.setData({
+      post: e.detail.value
+    })
+  },
+  saveInfo () {
+    this.setData({
+      errorMessage: ""
+    })
+    if (!this.data.visitorNm) {
+      this.setData({
+        errorMessage: "请输入姓名"
+      })
+      return false
+    }
+    if (!this.data.visitorPhone) {
+      this.setData({
+        errorMessage: "请输入联系电话"
+      })
+      return false
+    }
+    let data = {
+      userId: ID,
+      visitorNm: this.data.visitorNm,
+      visitorPhone: this.data.visitorPhone,
+      job: this.data.job,
+      post: this.data.post
+    }
+    fetch({
+      url: "/document/editCustomer",
+      method: "post",
+      data: data
+    }).then(res => {
+      if (res.code == 1) {
+        wx.showModal({
+          title:"提示",
+          content: "修改成功"
+        })
+        this.getInfo()
+      } else {
+        wx.showModal({
+          title: "错误",
+          content: res.message
+        })
+      }
+    })
+  },
+  getInfo () {
+    let data = {
+      id: ID
+    }
+    fetch({
+      url: "/common/getVisitorMore",
+      method: "post",
+      data: data
+    }).then(res => {
+      if (res.code == 1) {
+        // console.log(res)
+        this.setData({
+          visitorImg: res.data.visitorImg,
+          visitorNm: res.data.visitorNm,
+          visitorPhone: res.data.visitorPhone,
+          job: res.data.job,
+          post: res.data.post
+        })
+      } else {
+        wx.showModal({
+          title: "错误",
+          content: res.message
+        })
       }
     })
   },

@@ -30,7 +30,7 @@
 .content {
   width: 100%;
   box-sizing: border-box;
-  padding: 120rpx 30rpx 0 30rpx;
+  padding: 100rpx 30rpx 0 30rpx;
 }
 /* 标题 */
 .title {
@@ -81,4 +81,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.username.red {
+  color: #EA3939;
 }

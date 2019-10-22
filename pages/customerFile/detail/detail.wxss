@@ -113,4 +113,5 @@
   border-radius: 40rpx;
   color: white;
   margin-top: 80rpx;
+  cursor: pointer;
 }

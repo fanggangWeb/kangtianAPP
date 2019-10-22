@@ -1,4 +1,6 @@
 <nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<!-- 暂无数据 -->
+<import src="/pages/no_data/index.wxml" />
 <view class="container" style='padding-top: {{height}}px'>
   <!-- <view class="search">
     <input type="text" bindchange="toSearch" confirm-type="search" placeholder-class="input-style" placeholder="请输入电话号码"/>
@@ -14,6 +16,9 @@
       <view class="number">来访次数</view>
       <view class="time">等候时间</view>
     </view>
+    <block wx:if="{{noDataState}}">
+      <template is="noData" data="{{text:'暂无相关数据',mtop:300}}"></template>
+    </block>
     <view class="list-con">
       <view class="list" wx:for="{{customerList}}" data-item="{{item}}" bindtap="">
         <view class="list-name">

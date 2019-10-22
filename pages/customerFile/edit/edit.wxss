@@ -105,6 +105,13 @@
 .place-style {
   color: #A0A5AE;
 }
+.error-msg {
+  height: 80rpx;
+  margin-top: 20rpx;
+  color: #E94747;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
 .big-btn {
   width: 100%;
   height: 80rpx;
@@ -113,6 +120,6 @@
   background: #396BEA;
   border-radius: 40rpx;
   color: white;
-  margin-top: 80rpx;
+  /* margin-top: 80rpx; */
   cursor: pointer;
 }
