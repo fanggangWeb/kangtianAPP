@@ -12,8 +12,8 @@
 					<!-- <image src='/assets/images/browse/deal.png' mode='aspectFill' class='deal-img'></image> -->
 				</view>
 				<view class='customer-name'>
-					<text>{{memberData.visitorName}}</text>
-					<image wx:if='{{memberData.visitorLevel}}' src='/assets/images/vip{{memberData.visitorLevel}}.png' mode='aspectFill' class='vip-img'></image>
+					<text>{{memberData.visitorName||'客户'}}</text>
+					<image wx:if='{{memberData.level}}' src='/assets/images/vip{{memberData.level}}.png' mode='aspectFill' class='vip-img'></image>
 				</view>
 				<view class='customer-info'>
 					<view class='c-info-item'>
@@ -21,30 +21,31 @@
 						<text class='c-info-name'>{{nowCounselor.realName}}</text>
 						<text wx:if='{{nowCounselor.status}}' class='c-info-dot c-info-dot{{nowCounselor.status}}'></text>
 					</view>
-					<!-- <view class='c-info-item c-info-mt'>
+					<view class='c-info-item'>
 						<image src='/assets/images/browse/time.png' mode='aspectFill'></image>
-						<text>10次</text>
-					</view> -->
+						<text>{{memberData.visitCnt}}次</text>
+					</view>
 				</view>
 			</view>
 		</view>
 		<!-- 已经录入 -->
 		<view class='title'>已有成员</view>
-		<view class='customer-box recorded-customer'>
+		<view class='customer-box new-customer' >
 			<scroll-view scroll-x="true">
-				<view class='customer-item' wx:for='{{visitorList}}' wx:key='{{index}}' data-index='{{index}}' catchtap='checkItem' data-name='visitorList'>
-					<view class='change-box center_2'>
+				<!-- data-index='{{index}}' catchtap='checkItem' data-name='visitorList' -->
+				<view class='customer-item' wx:for='{{memberList}}' wx:key='{{index}}' >
+					<!-- <view class='change-box center_2'>
 						<image wx:if='{{item.check}}' src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
-					</view>
+					</view> -->
 					<view class='customer-header'>
 						<image src='{{imageUrl+item.visitorImg}}' mode='aspectFill' class='header-img'></image>
 					</view>
-					<!-- <view class='customer-info'>
+					<view class='customer-info'>
 						<view class='c-info-item'>
 							<image src='/assets/images/browse/time.png' mode='aspectFill'></image>
-							<text>10次</text>
+							<text>{{item.visitCnt}}次</text>
 						</view>
-					</view> -->
+					</view>
 				</view>
 			</scroll-view>
 		</view>
@@ -75,12 +76,25 @@
 <!-- 按钮 -->
 <view class="btn-box">
 	<view class='operate-box'>
-		<view class='operate-item1'>关联顾问</view>
-		<view class='operate-item2'>客户分组</view>
-		<view class='operate-item3'>顾问代班</view>
-		<view class='operate-item4'>更换顾问</view>
+		<view class='operate-item1' bindtap='associateConsultant'>关联顾问</view>
+		<view class='operate-item2' bindtap='handleGroup' data-type='1'>客户分组</view>
+		<view class='operate-item3' bindtap='handleGroup' data-type='3'>顾问代班</view>
+		<view class='operate-item4' bindtap='handleGroup' data-type='4'>更换顾问</view>
 	</view>
 </view>
 <!-- 弹框 -->
 <customer-modal show='{{showModal}}' bindsubmitmodal='modalSubmit' bindclosemodal='closeModal' height='{{height}}'
  datalist='{{visitorList}}' counselorlist='{{counselorList}}' componenttext='{{componentText}}'></customer-modal>
+<!-- 原因 -->
+<view class="way-modal center_2"  wx:if='{{showModalWay}}' style="padding-top: {{height}}px;"  catchtouchmove='preventTouchMove'>
+	<view class="way-wrap">
+		<view class="close center_2" bindtap='closeWayModal'>
+			<image src='/assets/images/browse/close.png'></image>
+		</view>
+		<view class="title">更换原因</view>
+		<view class="way-content">
+			 <textarea placeholder="输入文字..." maxlength="200" placeholder-style="color:rgba(160,165,174,1);" bindinput="getChangeWay" />
+		</view>
+		<view class='submit-button' catchtap='submitChange'>确定</view>
+	</view>
+</view>

@@ -14,13 +14,13 @@
 						<image wx:if='{{item.state>=2}}' src='/assets/images/browse/deal.png' mode='aspectFill' class='deal-img'></image>
 					</view>
 					<view class='customer-name'>
-						<text>{{item.visitorNm}}</text>
+						<text>{{item.visitorNm||'客户'}}</text>
 						<image wx:if='{{item.level}}' src='/assets/images/vip{{item.level}}.png' mode='aspectFill' class='vip-img'></image>
 					</view>
 					<view class='customer-info'>
 						<view class='c-info-item'>
 							<image src='/assets/images/browse/name.png' mode='aspectFill'></image>
-							<text class='c-info-name'>{{item.username}}</text>
+							<text class='c-info-name'>{{item.username||'顾问'}}</text>
 							<text wx:if='{{item.status}}' class='c-info-dot c-info-dot{{item.status}}'></text>
 						</view>
 						<view class='c-info-item c-info-mt'>

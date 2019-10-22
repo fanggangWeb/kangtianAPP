@@ -1,35 +1,38 @@
 <!-- 人员弹框 -->
-<view class='customer-model center_2' style="padding-top: {{height}}px;"  wx:if='{{showModal}}'>
+<view class='customer-model center_2' style="padding-top: {{height}}px;"  wx:if='{{showModal}}' catchtouchmove='preventTouchMove'>
   <view class='model-content'>
 	  <view class="close center_2" bindtap='closeModal'>
 		  <image src='/assets/images/browse/close.png'></image>
 	  </view>
     <view class='title'>{{componentText.title}}</view>
-    <view class='customer-box'>
-        <view class='customer-item' wx:for='{{dataList}}' wx:key='{{index}}' data-index='{{index}}' catchtap='checkItem'>
-          <view class='change-box center_2'>
-          	<image wx:if='{{item.check}}' src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
-          </view>
-          <view class='customer-header'>
-            <image src='{{imageUrl+item.visitorImg}}' mode='aspectFill' class='header-img'></image>
-          </view>
-          <view class='customer-info'>
-            <view class='c-info-item'>
-              <image src='/assets/images/browse/time.png' mode='aspectFill' ></image>
-              <text>{{item.visitCnt}}次</text>
-            </view>
-          </view>
-        </view>
+	
+    <view class='customer-box' bindtouchstart='handletouchtart' bindtouchmove='handletouchmove' bindtouchend='handletouchend'>
+        <view class='customer-wrap'>
+			<view class='customer-item' wx:for='{{dataList}}' wx:key='{{index}}' data-index='{{index}}' catchtap='checkItem'>
+			  <view class='change-box center_2' wx:if='{{componentText.type==1}}'>
+				<image wx:if='{{item.check}}' src='/assets/images/browse/change_ok.png' mode='aspectFill' class='change-ok-img'></image>
+			  </view>
+			  <view class='customer-header'>
+				<image src='{{imageUrl+item.visitorImg}}' mode='aspectFill' class='header-img'></image>
+			  </view>
+			  <view class='customer-info'>
+				<view class='c-info-item'>
+				  <image src='/assets/images/browse/time.png' mode='aspectFill' ></image>
+				  <text>{{item.visitCnt}}次</text>
+				</view>
+			  </view>
+			</view>
+		</view>
     </view>
     <view class='title'>置业顾问</view>
     <view class="change-counselor">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{counselorList}}" range-key='userName'>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{counselorList}}" range-key='realName'>
         <view class="picker">
-          <text>{{counselorList[index].userName}}</text>
+          <text>{{counselorList[index].realName}}</text>
           <image src='/assets/images/browse/arrow_down.png' mode='aspectFill'></image>
         </view>
       </picker>
     </view>
-    <view class='submit-bottom' catchtap='submit'>{{componentText.buttonText}}</view>
+    <view class='submit-button' catchtap='submit'>{{componentText.buttonText}}</view>
   </view>
 </view>

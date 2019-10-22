@@ -175,5 +175,58 @@ scroll-view{
 }
 /* 新建房客 */
 .new-customer scroll-view{
-  height:240rpx;
+  height:220rpx;
+  margin-bottom: 60rpx;
+}
+
+/* 原因弹框 */
+.way-modal{
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	background: rgba(0,0,0,0.4);
+}
+.way-wrap{
+	background-color: #fff;
+	width:690rpx;
+	padding:60rpx;
+	border-radius:10rpx;
+	position: relative;
+}
+.way-wrap .title{
+	text-align: center;
+}
+.way-content{
+	width: 100%;
+	height:633rpx;
+}
+.way-content textarea{
+	width: 100%;
+	height:100%;
+	background:rgba(236,239,244,1);
+	border-radius:10rpx;
+	font-size:28rpx;
+	padding: 30rpx;
+	box-sizing: border-box;
+}
+.way-wrap .submit-button{
+	width: 100%;
+	margin-top: 60rpx;
+}
+/* 关闭
+ */
+.way-wrap .close{
+	width: 40rpx;
+	height: 40rpx;
+	position: absolute;
+	top: -60rpx;
+	right: 0;
+	
+}
+.way-wrap .close image{
+	width: 100%;
+	height: 100%;
 }

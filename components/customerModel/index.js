@@ -1,4 +1,6 @@
-import {imageURL} from '../../utils/fetch'
+import {
+	imageURL
+} from '../../utils/fetch'
 Component({
 	/**
 	 * 组件的属性列表
@@ -42,7 +44,7 @@ Component({
 			observer: function(newVal, oldVal) {
 				this.setData({
 					componentText: newVal,
-					index:newVal.adviserIndex||0,
+					index: newVal.adviserIndex || 0,
 				})
 			},
 		}
@@ -57,9 +59,18 @@ Component({
 		counselorList: [], //职业顾问
 		componentText: {}, //文字标题内容 
 		showModal: false, //是否显示
-		imageUrl:imageURL
+		imageUrl: imageURL,
+		lastX: 0,          //滑动开始x轴位置
+		lastY: 0,          //滑动开始y轴位置
+		currentGesture: 0, //标识手势
 	},
 
+	behavior:{
+		
+	},
+	ready(){
+		
+	},
 	/**
 	 * 组件的方法列表
 	 */
@@ -71,38 +82,92 @@ Component({
 		},
 		submit() {
 			// 选中的人
-			let list=[];
-			this.data.dataList.forEach((v,i)=>{
-				if(v.check){
+			let list = [],
+				recordIds = [];
+			this.data.dataList.forEach((v, i) => {
+				if (this.data.componentText.type == 1) {
+					if (v.check) {
+						list.push(v.visitorId);
+					}
+				} else {
 					list.push(v.visitorId);
 				}
+				recordIds.push(v.id);
 			})
-			if(list.length==0){
+			if (list.length == 0) {
 				wx.showToast({
-				  title: '请选择人员',
-				  duration: 2000,
-				  icon:'none'
+					title: '请选择人员',
+					duration: 2000,
+					icon: 'none'
 				})
 				return;
 			}
 			// 确定
 			this.triggerEvent('submitmodal', {
-				checkedList:list,
-				counselorId:this.data.counselorList[this.data.index].propertyConsultantId,
-				type:this.data.componentText.type
+				checkedList: list,
+				counselorId: this.data.counselorList[this.data.index].propertyConsultantId,
+				type: this.data.componentText.type,
+				recordIds: recordIds
 			})
 		},
 		// 关闭模态框
-		closeModal(){
+		closeModal() {
 			this.triggerEvent('closemodal');
 		},
 		// 选择
-		checkItem(e){
+		checkItem(e) {
 			let index = e.currentTarget.dataset.index;
-			let checkName='dataList.['+index+'].check';
+			let checkName = 'dataList.[' + index + '].check';
 			this.setData({
-				[checkName]:!this.data.dataList[index].check
+				[checkName]: !this.data.dataList[index].check
 			})
-		}
+		},
+		preventTouchMove() {
+
+		},
+		//滑动移动事件
+		  handletouchmove: function (event) {
+		    var currentX = event.touches[0].pageX
+		    var currentY = event.touches[0].pageY
+		    var tx = currentX - this.data.lastX
+		    var ty = currentY - this.data.lastY
+		    var text = ""
+		    //左右方向滑动
+		    if (Math.abs(tx) <= Math.abs(ty)) {
+				if (ty < 0){
+		        console.log("向上滑动")
+				setTimeout(()=>{
+					// if()
+					// -10
+				})
+				}else if (ty > 0){
+				  console.log("向下滑动")
+				}
+		    }
+		
+		    //将当前坐标进行保存以进行下一次计算
+		    this.data.lastX = currentX
+		    this.data.lastY = currentY
+			console.log(this.data.lastX)
+			console.log(this.data.lastY)
+		  },
+		
+		  //滑动开始事件
+		  handletouchtart: function (event) {
+		    this.data.lastX = event.touches[0].pageX
+		    this.data.lastY = event.touches[0].pageY
+			// var query = wx.createSelectorQuery();
+			//     //选择id
+			//     var that = this;
+			//     query.selectAll('.customer-wrap').boundingClientRect(function (rect) {
+			//       // console.log(rect.width)
+			// 	  console.log(rect)
+			      
+			//     }).exec();
+		  },
+		  //滑动结束事件
+		  handletouchend: function (event) {
+		    this.data.currentGesture = 0;
+		  },
 	}
 })

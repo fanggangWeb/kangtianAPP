@@ -115,8 +115,8 @@ Page({
 	// 获取数据
 	getData(name) {
 		let data = {
-			startPosition: 1,
-			maxLength: 100,
+			startPosition: 0,
+			maxLength: 9000,
 			visitorState: name == 'entered' ? 0 : 1
 		}
 		fetch({
@@ -153,9 +153,16 @@ Page({
 		}).then(res => {
 			if (res.code == 1) {
 				this.wxAlert('绑定成功');
-				this.setData({
-					showModal: false
-				})
+				setTimeout(()=>{
+					// 已录入
+					this.getData('entered');
+					// 未录入
+					this.getData('notEentered');
+					this.setData({
+						showModal: false
+					})
+				}, 2000);
+				
 			} else {
 				wx.showModal({
 					title: '错误',
@@ -199,24 +206,50 @@ Page({
 			data: data
 		}).then(res => {
 			if (res.code == 1) {
-				let adviserIndex=0;
-				if(res.data[0].sysUserId){
-					this.data.counselorList.forEach((v,i)=>{
-						if(v.propertyConsultantId==res.data[0].sysUserId){
-							adviserIndex=i;
+				if(res.data[0].groupId){
+					let adviserIndex=0,list=[],data=res.data[0];
+					if(res.data[0].sysUserId){
+						this.data.counselorList.forEach((v,i)=>{
+							if(v.propertyConsultantId==data.sysUserId){
+								adviserIndex=i;
+							}
+						})
+					}
+					data.groupMemberInfos.forEach((v, i) => {
+						let obj = {
+							id:v.visitorRecordid,
+							level: v.visitorLevel,
+							state: null,
+							status: data.status,
+							sysUserId: data.sysUserId,
+							username: data.userName,
+							visitCnt: v.visitCount,
+							visitorId: v.visitorId,
+							visitorImg: v.visitorImg,
+							visitorNm: v.visitorName,
+							check:false,
 						}
+						list.push(obj);
 					})
+						
+					this.setData({
+						showModal: true,
+						componentText: {
+							title: '小组成员',
+							buttonText: '确定拆分',
+							type: 1,
+							adviserIndex:adviserIndex
+						}, //组件名字
+						visitorList:list
+					})
+				}else{
+					wx.showModal({
+						title: '提示',
+						content: '该成员暂未分组',
+						showCancel:false
+					});
 				}
-				this.setData({
-					showModal: true,
-					componentText: {
-						title: '小组成员',
-						buttonText: '确定拆分',
-						type: 1,
-						adviserIndex:adviserIndex
-					}, //组件名字
-					visitorList:res.data[0].groupMemberInfos
-				})
+				
 			} else {
 				wx.showModal({
 					title: '错误',
@@ -239,6 +272,10 @@ Page({
 		}).then(res => {
 			if (res.code == 1) {
 				this.wxAlert('拆分成功');
+				// 已录入
+				this.getData('entered');
+				// 未录入
+				this.getData('notEentered');
 				this.setData({
 					showModal: false
 				})

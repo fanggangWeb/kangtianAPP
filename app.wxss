@@ -31,7 +31,7 @@ button::after{
   box-shadow:0px 6rpx 12rpx rgba(11,107,232,0.25);
   border-radius: 48rpx;
   font-size: 32rpx;
-  line-height: 90rpx;
+  line-height: 80rpx;
   color: rgba(255, 255, 255, 1);
   text-align: center;
   margin: 0rpx auto;
