@@ -18,7 +18,7 @@ Page({
     ],
     statusState: false,
     status: "",
-    dialogState: true, // 弹出层状态
+    dialogState: false, // 弹出层状态
     businessStatus: "", // 点击了开始营业或者结束营业后暂存 状态
     // 密码框配置
     focus: false,

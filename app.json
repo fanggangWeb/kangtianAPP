@@ -21,7 +21,8 @@
     "pages/counselorList/index",
     "pages/counselorList/searchResult/index",
     "pages/today/today",
-    "pages/history/history"
+    "pages/history/history",
+    "pages/consultantList/consultantList"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -3,8 +3,8 @@ const app = getApp()
 import { fetch, apiUrl } from '../../utils/fetch'
 import * as echarts from '../../ec-canvas/echarts';
 let chart = null;
-let that;
-let userInfo
+
+let that, userInfo, ID;
 var option ={
   title: {
     text: '今日销售业绩',
@@ -98,7 +98,10 @@ Page({
   //options(Object)
   onLoad: function(options) {
     that = this
+    ID = options.id
     userInfo = wx.getStorageSync("userInfo");
+    // console.log(options)
+    
   },
   onReady: function() {
   },
@@ -129,7 +132,7 @@ Page({
         let arr = [res.data.oldCustomerCount, res.data.newCustomerCount, res.data.selinaCount, res.data.assignCount]
         console.log(arr)
         option.series[0].data = arr
-        chart.setOption(option)
+        chart.setOption(option);
       } else {
         wx.showModal({
           title: '错误',

@@ -45,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 15,
 			"list": [
 				{
 					"id": -1,
@@ -153,10 +153,17 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 15,
 					"name": "历史销售业绩",
 					"pathName": "pages/history/history",
-					"query": "",
+					"query": "id=1048",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "置业顾问列表  // 今日业绩 历史业绩使用",
+					"pathName": "pages/consultantList/consultantList",
+					"query": "type=today",
 					"scene": null
 				}
 			]

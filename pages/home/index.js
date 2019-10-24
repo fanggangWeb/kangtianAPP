@@ -31,8 +31,8 @@ Page({
     ],
     // 业绩统计菜单
     yejiMenu: [
-      { icon: "../../assets/images/home/jinriyeji.png", name: "今日业绩", path: "../today/today"},
-      { icon: "../../assets/images/home/lishiyeji.png", name: "历史业绩", path: "../history/history"},
+      { icon: "../../assets/images/home/jinriyeji.png", name: "今日业绩", path: "../today/today", type: "today"},
+      { icon: "../../assets/images/home/lishiyeji.png", name: "历史业绩", path: "../history/history", type: "history"},
     ],
     // 组件所需的参数
     navbarData: {
@@ -69,7 +69,12 @@ Page({
     wx.navigateTo({
       url: item.path
     });
-      
+  },
+  toPerformance (e) {
+    var item = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: "../consultantList/consultantList?type=" + item.type
+    });
   },
   // 文字滚动
   scrolltxt: function () {
@@ -102,6 +107,7 @@ Page({
       current: e.detail.current
     })
   },
+  
   handleClick() {
     // wx.showModal({
     //   content: this.data.current.toString(),

@@ -1,0 +1,37 @@
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<!-- 暂无数据 -->
+<import src="/pages/no_data/index.wxml" />
+<view class="container" style='padding-top: {{height}}px'>
+  <!-- <view class="search">
+    <input type="text" bindchange="toSearch" confirm-type="search" placeholder-class="input-style" placeholder="请输入电话号码"/>
+  </view> -->
+  <!-- <view class="tabbar">
+    <view class="tab-con">
+      <view class="{{(item.id==tabValue?'active':'') + ' tab'}}" wx:for="{{tabList}}" wx:key="index" data-item="{{item}}" data-item="{{item}}" bindtap="changeTab">{{item.name}}</view>
+    </view>
+  </view> -->
+  <view class="content">
+    <view class="lengend">
+      <view class="name">头像</view>
+      <view class="number">用户名</view>
+      <view class="time">当前状态</view>
+    </view>
+    <block wx:if="{{noDataState}}">
+      <template is="noData" data="{{text:'暂无相关数据', mtop:300}}"></template>
+    </block>
+    <view class="list-con">
+      <view class="list" wx:for="{{dataList}}" data-item="{{item}}" bindtap="viewOne">
+        <view class="list-avatar">
+          <view class="avatar">
+            <image src="{{imageURL + item.imgPath}}"/>
+          </view>
+        </view>
+        <view class="list-number">{{item.userName}}</view>
+        <view class="list-time" wx:if="{{item.status == 0}}">离线</view>
+        <view class="list-time" wx:if="{{item.status == 1}}">在线</view>
+        <view class="list-time" wx:if="{{item.status == 2}}">忙碌</view>
+        <view class="list-time" wx:if="{{item.status == 3}}">离开</view>
+      </view>
+    </view>
+  </view>
+</view>

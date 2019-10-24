@@ -3,8 +3,7 @@ const app = getApp()
 import { fetch, apiUrl } from '../../utils/fetch'
 import * as echarts from '../../ec-canvas/echarts';
 let chart = null;
-let that;
-let userInfo
+let that, userInfo, ID
 var option ={
   //设置柱子的宽度
   barWidth: 20,
@@ -63,13 +62,13 @@ var option ={
     {
       name: "数量",
       type: "bar",
-      data: [3, 4, 6, 8],
+      stack: '总量',
+      data: [0, 4, 6, 8],
       label: {
         normal: {
           show: true,
-          position: 'right',
+          position: 'bottom',
           formatter: "{c}个",
-          rich: {}
         }
       },
       itemStyle: {
@@ -101,12 +100,36 @@ var option ={
               }]
             }
           },
-          barBorderRadius:[10, 10, 10, 10],
+          barBorderRadius:[10, 0, 0, 10],
           label: {
             show: false,
           }
         }
       }
+    },
+    {
+      name: '总量',
+      type: 'bar',
+      stack: '总量',
+      data: [10,12,13,14],
+      label: {
+        normal: {
+          show: true,
+          position: 'right',
+          color: "#666666",
+          formatter: "{c}个",
+        }
+      },
+      itemStyle: {
+        normal: {
+          color: "#ECEFF4",
+          barBorderRadius:[0, 10, 10, 0],
+          label: {
+            show: false,
+          },
+        },
+      },
+      
     }
   ]
 }
@@ -138,12 +161,14 @@ Page({
   //options(Object)
   onLoad: function(options) {
     that = this
+    ID = options.id
     userInfo = wx.getStorageSync("userInfo");
+    console.log(ID)
   },
   onReady: function() {
   },
   onShow: function() {
-    this.getData()
+    // this.getData()
   },
   onHide: function() {
 

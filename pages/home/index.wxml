@@ -43,7 +43,7 @@
     </view>
     <view class="title" style="margin-top:40rpx">业绩统计</view>
     <view class="menu">
-      <view class="menu-item" wx:for="{{yejiMenu}}" data-item="{{item}}" bindtap="switchMenu">
+      <view class="menu-item" wx:for="{{yejiMenu}}" data-item="{{item}}" bindtap="toPerformance">
         <view class="menu-icon">
           <image class="" src="{{item.icon}}"/>       
         </view>

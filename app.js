@@ -10,8 +10,10 @@ App({
     // 获取设备顶部窗口的高度（不同设备窗口高度不一样，根据这个来设置自定义导航栏的高度）
     wx.getSystemInfo({
         success: (res) => {
-		  this.globalData.statusBarHeight = res.statusBarHeight;
-		  this.globalData.headerHeight = res.system.indexOf('iOS') > -1 ? 44 : 48;
+          // console.log(res.statusBarHeight)
+          this.globalData.height = res.statusBarHeight
+          this.globalData.statusBarHeight = res.statusBarHeight;
+          this.globalData.headerHeight = res.system.indexOf('iOS') > -1 ? 44 : 48;
         }, fail(err) {
           // console.log(err);
         }
