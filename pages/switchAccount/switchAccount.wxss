@@ -4,7 +4,7 @@
 .content {
   width: 100%;
   box-sizing: border-box;
-  padding: 360rpx 100rpx 0 40rpx;
+  padding: 360rpx 60rpx 0 40rpx;
   /* padding: 226rpx 60rpx 0 60rpx; */
 }
 .desc {

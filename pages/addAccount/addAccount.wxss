@@ -95,6 +95,7 @@
   bottom: 0;
   width: 100%;
   height: 258rpx;
+  z-index: -1;
 }
 .login-bg image{
   width: 100%;

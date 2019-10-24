@@ -160,3 +160,79 @@ page {
   height: 10rpx;
   background: #ECEFF4;
 }
+/* 密码的弹出框 */
+.code-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.code-body {
+  position: relative;
+  width: calc(100% - 60rpx);
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  padding: 60rpx;
+  background: white;
+}
+.close-icon {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: -60rpx;
+  right: 0;
+}
+.title {
+  text-align: center;
+  color: #333333;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 59rpx;
+}
+/* 密码框开始 */
+.password-input-box{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 120rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.input-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input{
+  width: 100%;
+  height: 120rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   
+  text-align: center;
+}
+.input>view{
+  height: 100%;
+  background: #ECEFF4;
+  border-radius: 10rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+.focus-input {
+  height: 100%;
+}
+.password-input{  
+  width: 0;  
+  height: 0;  
+}  

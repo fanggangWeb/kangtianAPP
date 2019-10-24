@@ -1,12 +1,14 @@
 //获取应用实例
 const app = getApp()
-import { fetch, uploadFetch,apiUrl, imageURL } from '../../utils/fetch'
+import { fetch, uploadFetch, imageURL } from '../../utils/fetch'
 let userInfo
 //Page Object
 Page({
   data: {
     imageURL: imageURL,
     avatarUrl: "",
+    username: "",
+    role: 5,
     statusList: [
       {color: "green", name: "上线", status: "1"},
       {color: "red", name: "忙碌", status: "2"},
@@ -16,10 +18,18 @@ Page({
     ],
     statusState: false,
     status: "",
+    dialogState: true, // 弹出层状态
+    businessStatus: "", // 点击了开始营业或者结束营业后暂存 状态
+    // 密码框配置
+    focus: false,
+    Length: 4,        // 输入框个数  
+    isFocus: true,    // 聚焦  
+    codeValue: "",    // 输入的内容  
+    ispassword: true, // 是否密文显示 true为密文， false为明文。
     // 导航栏组件所需的参数
     navbarData: {
-      showCapsule: 0, //是否显示左上角图标   1表示显示    0表示不显示
-      title: '个人信息', //导航栏 中间的标题
+      showCapsule: 0, // 是否显示左上角图标   1表示显示    0表示不显示
+      title: '个人信息', // 导航栏 中间的标题
     },
     height: app.globalData.statusBarHeight+app.globalData.headerHeight // 此页面 页面内容距最顶部的距离
   },
@@ -28,7 +38,9 @@ Page({
     // console.log(wx.getStorageSync("userInfo"))
     userInfo = wx.getStorageSync("userInfo")
     this.setData({
-      avatarUrl: userInfo.imgPath
+      avatarUrl: userInfo.imgPath,
+      username: userInfo.username,
+      role: userInfo.role
     })
   },
   onReady: function() {
@@ -46,6 +58,28 @@ Page({
   showList () {
     this.setData({
       statusState: !this.data.statusState
+    })
+  },
+  // 开始营业
+  startBusiness () {
+    this.setData({
+      businessStatus: 1,
+      codeValue: "",
+      dialogState: true,
+      
+    })
+  },
+  // 结束营业
+  endBusiness () {
+    this.setData({
+      businessStatus: 0,
+      codeValue: "",
+      dialogState: true,
+    })
+  },
+  closeDialog () {
+    this.setData({
+      dialogState: false
     })
   },
   changeAvatar () {
@@ -195,6 +229,56 @@ Page({
           content: res.message,
         });
       }
+    })
+  },
+
+
+  // 密码框聚焦失焦操作
+  password_input: function (e) {
+    var that = this;
+    // console.log(e.detail.value);
+    var inputValue = e.detail.value;
+    that.setData({
+      codeValue: inputValue
+    })
+    if (inputValue.length == 4) {
+      let data = {
+        salesDepartmentId: userInfo.departmentId,
+        status: this.data.businessStatus, // 0 未营业 1 营业
+        code: inputValue
+      }
+      fetch({
+        url: "/manage/startOrEndBusiness",
+        method: "post",
+        data
+      }).then(res => {
+        if (res.code == 1) {
+          this.setData({
+            dialogState: false
+          })
+        } else {
+          this.setData({
+            dialogState: false
+          })
+          wx.showModal({
+            title: '错误',
+            content: res.message
+          });
+        }
+      })
+    }
+  },
+
+  focusTap () {
+    var that = this;
+    that.setData({
+      isFocus: true,
+    })
+  },
+
+  getFocus: function () {
+    this.setData({
+      focus: !this.data.focus
     })
   },
   //item(index,pagePath,text)

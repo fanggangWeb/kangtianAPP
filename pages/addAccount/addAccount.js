@@ -58,7 +58,45 @@ Page({
       })
       return
     }
-
+    let data = {
+      username: this.data.account,
+      password: this.data.password
+    }
+    fetch({
+      url: "/common/login",
+      method: "post",
+      data: data
+    }).then(res => {
+      if (res.code == 1) {
+        data.avatar = res.data.imgPath
+        data.username = res.data.username
+        let accountList = wx.getStorageSync("accountList")
+        if (!accountList) {
+          let arr = []
+          arr.push(data)
+          wx.setStorageSync("accountList", arr)
+        } else {
+          accountList.push(data)
+          wx.setStorageSync("accountList", accountList)
+        }
+        wx.showToast({
+          title: '添加成功',
+          icon: 'success',
+          image: '',
+          duration: 2000,
+          mask: true,
+        });
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 1500);
+        
+      } else {
+        wx.showModal({
+          title: '错误',
+          content: res.data.message,
+        });
+      }
+    })
   }
 });
   

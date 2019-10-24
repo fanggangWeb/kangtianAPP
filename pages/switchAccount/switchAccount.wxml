@@ -6,11 +6,11 @@
       <image class="" src="../../assets/images/arrow-icon.png"/>  
     </view>
     <view class="account-list">
-      <view class="account" wx:for="{{accountList}}" data-item="{{item}}" bindtap="chooseAccount">
+      <view class="account" bindlongpress="delAccount" wx:for="{{accountList}}" data-item="{{item}}" data-index="{{index}}" bindtap="chooseAccount">
         <view class="account-icon" >
-          <image class="avatar" src="{{item.url}}"/>
+          <image class="avatar" src="{{imageURL + item.avatar}}"/>
         </view>
-        <view class="account-name">{{item.name}}</view>
+        <view class="account-name">{{item.username}}</view>
       </view>
       <view class="account">
         <view class="account-icon account-text" bindtap="addAccount">

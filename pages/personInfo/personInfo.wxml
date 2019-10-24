@@ -6,7 +6,7 @@
       <image class="set-icon" src="../../assets/images/personInfo/settings.png"/>
     </view>
     <view class="text-con">
-      <view class="username">张三丰</view>
+      <view class="username">{{username}}</view>
       <view class="status" bindtap="showList">
         <view class="{{'status-icon' + ' color'+status}}"></view>
         <view class="status-name" wx:if="{{status == 0}}">离线</view>
@@ -32,18 +32,18 @@
       <view class="text">业绩统计</view>
     </view>
     <view class="bg-line"></view>
-    <view class="line">
+    <view class="line" bindtap="startBusiness">
       <view class="icon">
         <image class="" src="../../assets/images/personInfo/kaishiyingye.png"/>
       </view>
-      <view class="text" style="color:#38C068">开始营业</view>
+      <view class="text" style="color:#38C068" >开始营业</view>
     </view>
     <view class="bg-line"></view>
-    <view class="line">
+    <view class="line" bindtap="endBusiness">
       <view class="icon">
         <image class="" src="../../assets/images/personInfo/kaishiyingye.png"/>
       </view>
-      <view class="text" style="color:#E29D19">结束营业</view>
+      <view class="text" style="color:#E29D19" >结束营业</view>
     </view>
     <view class="bg-line"></view>
 
@@ -67,8 +67,20 @@
       </view>
       <view class="text" style="color: #F35E5E">退出登录</view>
     </view>
-    
-
-
+  </view>
+  <view class="code-dialog" wx:if="{{dialogState}}">
+    <view class="code-body">
+      <image class="close-icon" src="../../assets/images/browse/close.png" bindtap="closeDialog"></image>
+      <view class="title">输入密码</view>
+      <view class='password-input-box'>
+        <view class='input' bindtap='getFocus'>
+          <view wx:for="{{Length}}" wx:key="item" class='input-content'>
+            <input class="focus-input" value="{{codeValue.length>=index+1?codeValue[index]:''}}" 
+            disabled password='{{ispassword}}' catchtap='focusTap'></input>
+          </view>
+        </view>
+        <input name="password" type="number" password="{{true}}" class='password-input' maxlength="{{Length}}" focus="{{isFocus}}"   bindinput="password_input"></input>
+      </view>
+    </view>
   </view>
 </view>
