@@ -4,8 +4,14 @@
 view{
   box-sizing: border-box
 }
-.centent{
+.content{
 	padding-top: 50rpx;
+}
+/* 一行文字显示省略号 */
+.ellipsis-1{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /* 客户标题 */
 .title{

@@ -5,6 +5,8 @@
     "pages/personInfo/personInfo",
     "pages/massage/index",
 	  "pages/massage/talkList/index",
+    "pages/massage/talkData/index",
+    "pages/massage/addGroup/index",
     "pages/editPassword/editPassword",
     "pages/addAccount/addAccount",
     "pages/switchAccount/switchAccount",
@@ -53,6 +55,14 @@
         "text": "个人信息"
       }
     ]
+  },
+  "permission": {
+    "scope.camera": {
+      "desc": "是否授权摄像头"
+    },
+    "scope.record": {
+      "desc": "是否授权录音功能"
+    }
   },
   "sitemapLocation": "sitemap.json"
 }

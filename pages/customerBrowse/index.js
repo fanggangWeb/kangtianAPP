@@ -219,7 +219,7 @@ Page({
 							status: data.status,
 							sysUserId: data.sysUserId,
 							username: data.userName,
-							visitCnt: v.visitCount,
+							visitCnt: v.visitCount||0,
 							visitorId: v.visitorId,
 							visitorImg: v.visitorImg,
 							visitorNm: v.visitorName,

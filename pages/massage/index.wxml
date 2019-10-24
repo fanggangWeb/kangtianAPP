@@ -1,6 +1,19 @@
-<!--index.wxml-->
-<nav-bar navbar-data='{{navbarData}}'></nav-bar>
-<view class="container" style="padding-top: {{height}}px;">
+<!-- 导航 -->
+<view class='nav-wrap' style='height: {{statusBarHeight+headerHeight}}px;'>
+	<!-- 顶部状态栏 -->
+	<view style='height: {{statusBarHeight}}px;'></view>
+	<view style='height: {{headerHeight}}px;position: relative;'>
+		<!-- 导航栏 中间的标题 -->
+		<view class='nav-title' style='line-height: {{headerHeight}}px;'>康田置业售楼部</view>
+		<view style='display: flex; justify-content: space-around;flex-direction: column'>
+			<view class='nav-capsule' style='height: {{headerHeight}}px;' catchtap='addGroup'>
+				<image src='/assets/images/massage/more.png'  mode='widthFix'></image>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 导航 -->
+<view class="container" style="padding-top: {{statusBarHeight+headerHeight}}px;">
 	<!-- 推送 -->
 	<view class="massage-item">
 		<view class="msg-img img-system mas-dot">
@@ -11,7 +24,7 @@
 				<view class="msg-name ellipsis-1">王祖蓝一组群聊王祖蓝一组群聊王祖蓝一组群聊</view>
 				<view class="msg-time">下午3.00</view>
 			</view>
-			<view class="msg-text ellipsis-1">什么时候可以见面谈一谈什么时候可以见面谈一谈什么时候可以见面谈一谈</view>
+			<!-- <view class="msg-text ellipsis-1"></view> -->
 		</view>
 	</view>
 	<!-- 群组 -->

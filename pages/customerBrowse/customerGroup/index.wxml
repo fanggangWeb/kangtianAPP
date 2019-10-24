@@ -29,8 +29,8 @@
 			</view>
 		</view>
 		<!-- 已经录入 -->
-		<view class='title'>已有成员</view>
-		<view class='customer-box new-customer' >
+		<view class='title' wx:if='{{memberList.length>0}}'>已有成员</view>
+		<view class='customer-box new-customer' wx:if='{{memberList.length>0}}'>
 			<scroll-view scroll-x="true">
 				<!-- data-index='{{index}}' catchtap='checkItem' data-name='visitorList' -->
 				<view class='customer-item' wx:for='{{memberList}}' wx:key='{{index}}' >

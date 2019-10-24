@@ -1,6 +1,6 @@
 <nav-bar navbar-data='{{navbarData}}'></nav-bar>
 <view class='container' style='padding-top: {{height}}px'>
-	<view class="centent">
+	<view class="content">
 		<!-- 已经录入 -->
 		<view class='title'>置业顾问</view>
 		<view class='customer-box counselor'>

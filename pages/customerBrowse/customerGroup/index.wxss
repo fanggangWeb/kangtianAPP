@@ -4,6 +4,12 @@
 view{
   box-sizing: border-box
 }
+/* 一行文字显示省略号 */
+.ellipsis-1{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .content{
 	padding-top: 50rpx;
 	padding-bottom: 100rpx;

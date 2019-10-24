@@ -1,9 +1,5 @@
-.container{
-  width: 100%;
-  
-}
 view{
-  box-sizing: border-box
+	box-sizing: border-box;
 }
 /* 一行文字显示省略号 */
 .ellipsis-1{
@@ -11,28 +7,18 @@ view{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.content{
-	padding-top: 50rpx;
-	padding-bottom: 120rpx;
-}
-
-/* 客户标题 */
-.title{
-  text-align: left;
-  line-height:40rpx;
-  font-size:36rpx;
-  font-weight:bold;
-  color:rgba(51,51,51,1);
-  margin-bottom: 52rpx;
+.container {
   width: 100%;
-  padding: 0 30rpx;
 }
-/* 客户列表 */
-.customer-box{
-  padding-left: 30rpx
+.content{
+	padding: 30rpx 30rpx 120rpx;
 }
-scroll-view{
-  white-space:nowrap;
+/* 标题 */
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 40rpx;
 }
 .customer-item{
   width:162rpx;
@@ -43,6 +29,7 @@ scroll-view{
   box-shadow:0px 6rpx 12rpx rgba(0,0,0,0.04);
   display: inline-block;
   margin-right: 14rpx;
+  margin-bottom: 14rpx;
 }
 .customer-header{
   position: relative;
@@ -53,14 +40,6 @@ scroll-view{
   height:160rpx;
   border-radius:4rpx;
   
-}
-.customer-header .deal-img{
-  width: 90rpx;
-  height: 90rpx;
-  position: absolute;
-  right: 6rpx;
-  bottom: 6rpx;
-  z-index: 9
 }
 .change-box{
   width: 30rpx;
@@ -81,74 +60,10 @@ scroll-view{
 }
 .customer-name{
   padding: 12rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1rpx solid rgba(238,238,238,1);
-}
-.customer-name text{
   font-size:24rpx;
   font-weight:bold;
   line-height: 30rpx;
   color:rgba(51,51,51,1);
-}
-.customer-name .vip-img{
-  width: 29rpx;
-  height: 22rpx;
-  margin-left: 10rpx;
-}
-.customer-info{
-  padding: 13rpx 15rpx;
-}
-.customer-info .c-info-item{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.c-info-mt{
-  margin-top: 10rpx;
-}
-.customer-info .c-info-item image{
-  width: 20rpx;
-  height: 20rpx;
-  margin-right: 12rpx;
-}
-.customer-info .c-info-item text{
-  font-size:20rpx;
-  font-weight:500;
-  line-height: 28rpx;
-  color:rgba(0,0,0,1);
-}
-.customer-info .c-info-item .c-info-name{
-  font-size:24rpx;
-}
-.customer-info .c-info-item .c-info-dot{
-  width:8rpx;
-  height:8rpx;
-  background:rgba(228,85,78,1);
-  border-radius:50%;
-  margin-left: 8rpx;
-}
-.customer-info .c-info-item .c-info-dot0{
-	background:#B0B0B0
-}
-.customer-info .c-info-item .c-info-dot1{
-	background:#3CDC4B
-}
-.customer-info .c-info-item .c-info-dot2{
-	background:#E4554E
-}
-.customer-info .c-info-item .c-info-dot3{
-	background:#B0B0B0
-}
-/* 已录客户 */
-.recorded-customer{
-  margin-bottom: 60rpx;
-}
-.recorded-customer scroll-view{
-  height:320rpx;
-}
-/* 新建房客 */
-.new-customer scroll-view{
-  height:270rpx;
+  width: 100%;
+  text-align: center;
 }

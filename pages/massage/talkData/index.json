@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "聊天信息",
+	"backgroundTextStyle": "dark",
+	"usingComponents": {
+		"nav-bar": "/components/navbar/index"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "新建群组",
+	"backgroundTextStyle": "dark",
+	"usingComponents": {
+		"nav-bar": "/components/navbar/index"
+	}
+}

@@ -1,19 +1,42 @@
-@import "/assets/wxss/common.wxss";
+view{
+	box-sizing: border-box;
+}
+/* 一行文字显示省略号 */
+.ellipsis-1{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .container {
   width: 100%;
 }
-
-.content {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 50rpx 30rpx 0 30rpx;
+.content{
+	padding: 30rpx 30rpx 120rpx;
+}
+.content-title{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	margin-bottom: 40rpx;
 }
 /* 标题 */
 .title {
   font-size: 36rpx;
   font-weight: bold;
   color: #333333;
-  margin-bottom: 40rpx;
+  line-height: 1;
+}
+.add-people{
+	width:140rpx;
+	height:48rpx;
+	background:rgba(57,107,234,1);
+	border-radius:24rpx;
+	line-height: 48rpx;
+	font-size:24rpx;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
 }
 .list-con {
   width: 100%;
@@ -40,13 +63,7 @@
   height: 100%;
   border-radius: 50%;
 }
-.vip-icon {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 36rpx;
-  height: 36rpx;
-}
+
 .username {
   color: #666666;
   font-size: 24rpx;
@@ -57,4 +74,9 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* 按钮 */
+.submit-button{
+	background-color: #F35E5E;
 }

@@ -7,15 +7,11 @@
 		<view class='nav-title' style='line-height: {{headerHeight}}px;'>{{navTitle}}</view>
 		<view style='display: flex; justify-content: space-around;flex-direction: column'>
 			<!-- 导航栏  左上角的返回按钮 和home按钮 -->
-			<!-- 其中wx:if='{{navbarData.showCapsule}}' 是控制左上角按钮的显示隐藏，首页不显示 -->
 			<view class='nav-capsule' style='height: {{headerHeight}}px;'>
-				<!-- 左上角的返回按钮，wx:if='{{!share}}'空制返回按钮显示 -->
-				<!-- 从分享进入小程序时 返回上一级按钮不应该存在 -->
 				<view class="btn-con">
 					<view bindtap='_navback'>
 						<image src='/assets/images/back.png' mode='aspectFit' class='back-pre'></image>
 					</view>
-					<!-- <view class='navbar-v-line' wx:if='{{share}}'></view> -->
 					<view class='navbar-v-line'></view>
 					<view bindtap='_gotoList'>
 						<image src='/assets/images/menu.png' mode='aspectFit' class='back-home'></image>
@@ -27,12 +23,12 @@
 	</view>
 </view>
 <!-- 内容 -->
-<view class="container" style="padding-top:{{statusBarHeight+headerHeight}}px">
-	<view class="content">
+<view class="container" style="padding-top:{{statusBarHeight+headerHeight}}px;">
+	<view class="content" style="padding-bottom:{{showMore?234:114}}rpx;">
 		<!-- <block wx:for='{{list}}' wx:key='{{index}}'> -->
 		<view class="time-line">今天5.00</view>
 		<!-- 对方 -->
-		<view class="opposite">
+		<view class="opposite" wx:for='{{4}}' wx:key="{{index}}">
 			<view class="item-header">
 				<image src='/assets/images/text.jpg' mode='aspectFill'></image>
 			</view>
@@ -86,30 +82,35 @@
 		<!-- </block> -->
 	</view>
 	<!-- 底部操作 -->
-	<view class="handle-bottom">
+	<view class="handle-bottom" style="bottom:{{commentBottom}}px">
 		<view class="handle-wrap">
-			<view class="show-voice">
+			<view class="show-voice center_2" bindtap='changeVoiceShow'>
 				<image src='/assets/images/massage/voice.png' mode='widthFix'></image>
 			</view>
 			<view class="massage-box">
-				<view class="massage-text">
-					<input type="text"/>
+				<view class="massage-voice center_2" wx:if='{{showVoice}}' catchlongpress="handleRecordStart"   catchtouchend="handleRecordStop">
+					<view>{{voiceText}}</view>
 				</view>
-				<!-- <view class="massage-voice">
-					<view>按住说话</view>
-				</view> -->
+				<view class="massage-text " wx:else>
+					<input type="text" confirm-type='send' adjust-position='{{false}}' bindfocus='bindfocus'  bindblur='bindblur' bindconfirm='sendMassage'/>
+				</view>
 			</view>
-			<view class="show-more">
+			<view class="show-more center_2" bindtap="changeMoreShow">
 				<image src='/assets/images/massage/more.png' mode='widthFix'></image>
 			</view>
 		</view>
-		<view class="more-handle">
-			<view class="massage-img">
+		<view class="more-handle" wx:if='{{showMore}}'>
+			<view class="massage-img center_2"  bindtap="addImage" >
 				<image src='/assets/images/massage/img.png' mode='widthFix'></image>
 			</view>
-			<view class="massage-video">
+			<view class="massage-video center_2" bindtap="chooesVideo">
 				<image src='/assets/images/massage/video.png' mode='widthFix'></image>
 			</view>
 		</view>
+		<!-- 刷新按钮 -->
+		<view class="refresh center_2" catchtap='refresh'>
+			<image src='/assets/images/massage/refresh.png' mode='widthFix'></image>
+		</view>
 	</view>
+
 </view>
