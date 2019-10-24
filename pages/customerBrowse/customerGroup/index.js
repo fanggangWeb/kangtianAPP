@@ -18,6 +18,7 @@ Page({
 		groupId: '', //小组id
 		memberData: {}, //当前成员信息
 		notEentered: [], //未录入
+		notEenteredShow:false,//显示未录入
 		memberList:[],//成员列表--页面显示成员
 		visitorList: [], //成员列表--组件成员
 		userId: 0, //当前登录人ID
@@ -162,7 +163,8 @@ Page({
 					v.check = false;
 				})
 				this.setData({
-					notEentered: res.data
+					notEentered: res.data,
+					notEenteredShow:true
 				})
 			} else {
 				wx.showModal({

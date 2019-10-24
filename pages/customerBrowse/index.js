@@ -13,6 +13,8 @@ Page({
 		height: app.globalData.statusBarHeight+app.globalData.headerHeight, // 此页面 页面内容距最顶部的距离
 		entered: [], //已录入
 		notEentered: [], //未录入
+		enteredShow: false, //已录入显示
+		notEenteredShow:false, //未录入显示
 		userId:wx.getStorageSync("userInfo").id,//当前登录人ID
 		companyId:wx.getStorageSync("userInfo").companyId,//所属机构ID
 		visitorList: [], //成员列表
@@ -125,7 +127,8 @@ Page({
 					if(name=='notEentered') v.check = false;
 				})
 				this.setData({
-					[name]: res.data
+					[name]: res.data,
+					[name+'Show']:true
 				})
 			} else {
 				wx.showModal({

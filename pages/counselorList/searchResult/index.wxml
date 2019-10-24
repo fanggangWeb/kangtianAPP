@@ -13,10 +13,6 @@
 						<image src='/assets/images/browse/name.png' mode='aspectFill'></image>
 						<text class='c-info-name'>{{counselorObj.userName}}</text>
 					</view>
-					<!-- <view class='c-info-item c-info-mt'>
-          <image src='/assets/images/browse/phone.png' mode='aspectFill' ></image>
-          <text>15185991447</text>
-        </view> -->
 				</view>
 			</view>
 		</view>
@@ -32,12 +28,7 @@
 						<view class='c-info-item'>
 							<image src='/assets/images/browse/name.png' mode='aspectFill'></image>
 							<text class='c-info-name'>{{item.visitorNm||'未录入'}}</text>
-							<!-- <text class='c-info-dot'></text> -->
 						</view>
-						<!-- <view class='c-info-item c-info-mt'>
-							<image src='/assets/images/browse/phone.png' mode='aspectFill'></image>
-							<text>15185991447</text>
-						</view> -->
 					</view>
 				</view>
 			</scroll-view>
