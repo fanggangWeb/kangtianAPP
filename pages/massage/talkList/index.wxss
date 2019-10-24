@@ -1,0 +1,255 @@
+view{
+	box-sizing: border-box;
+}
+/* 顶部要固定定位   标题要居中   自定义按钮和标题要和右边微信原生的胶囊上下对齐 */
+.nav-wrap {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: #fff;
+  color: #000;
+  z-index: 9999999;
+  overflow: hidden;
+}
+/* 标题要居中 */
+.nav-title {
+  position: absolute;
+  text-align: center;
+  max-width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 30rpx;
+  color: #2c2b2b;
+  font-weight: normal;
+}
+/* 按钮包裹 */
+
+.nav-capsule {
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+  width: 140rpx;
+  justify-content: space-between;
+  height: 64rpx;
+  /* background: red; */
+  /* border-radius: 20rpx;
+  border: 1px solid #DADADA; */
+}
+.btn-con {
+  padding: 4rpx 24rpx;
+  display: flex;
+  border-radius: 32rpx;
+  border: 1px solid #DADADA;
+  align-items: center;
+  
+}
+.navbar-v-line {
+  width: 1px;
+  height: 30rpx;
+  margin: 0 22rpx;
+  background-color: #e5e5e5;
+}
+
+.back-pre, .back-home {
+  width: 30rpx;
+  height: 30rpx;
+}
+.nav-capsule .back-home {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+/* 对话 */
+.container{
+	background-color: #F2F5F9;
+	min-height: 100vh;
+}
+.content {
+  width: 100%;
+  padding: 46rpx 30rpx;
+  /* background-color: #fff; */
+}
+
+.content .opposite, .content .myself {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  padding:20rpx 0 50rpx 0;
+}
+
+.content .opposite {
+  justify-content: flex-start;
+  padding-right: 100rpx;
+}
+
+.content .myself {
+  justify-content: flex-end;
+  padding-left: 100rpx;
+}
+
+.item-header image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.opposite .item-header {
+  margin-right: 24rpx;
+}
+
+.myself .item-header {
+  margin-left: 24rpx;
+}
+.item-content {
+  display: flex;
+  flex-direction: column;
+}
+.myself .item-content{
+  align-items: flex-end
+}
+.opposite .item-content{
+  align-items: flex-start
+}
+.item-content .item-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 40rpx;
+   color: #333333;
+  margin-bottom: 22rpx;
+}
+
+.myself .item-content .item-name{
+  text-align: right
+}
+
+.item-content .item-text, .item-content .item-voice {
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 40rpx;
+  padding: 24rpx 24rpx;
+  border-radius: 4rpx;
+  width: auto;
+	position: relative;
+}
+.item-content .item-text::before,.item-content .item-voice::before{
+	content: '';
+	position: absolute;
+	width:0;
+	height:0;
+	border-right:15rpx solid transparent;
+	border-left:15rpx solid transparent;
+	top: -11rpx;
+}
+.opposite .item-content .item-text,.opposite .item-content .item-voice {
+  background: #FFFFFF;
+  color: #333333;
+}
+
+.myself .item-content .item-text,.myself .item-content .item-voice {
+  background: #396BEA;
+  color: #FFFFFF;
+}
+.opposite .item-content .item-text::before,.opposite .item-content .item-voice::before{
+	left: 19rpx;
+	border-bottom:13rpx solid #FFFFFF;
+}
+.myself .item-content .item-text::before,.myself .item-content .item-voice::before{
+	border-bottom:13rpx solid #396BEA;
+	right: 19rpx;
+}
+
+.item-content .item-voice {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.item-content .item-voice image {
+  width: 26rpx;
+  height: 26rpx;
+  
+}
+.opposite .item-content .item-voice{
+  justify-content: flex-start;
+}
+.opposite .item-content .item-voice image{
+  margin-right: 16rpx;
+}
+.myself .item-content .item-voice{
+  justify-content: flex-end
+}
+.myself .item-content .item-voice image {
+  margin-left: 16rpx;
+  transform:rotate(180deg);
+}
+
+
+.item-content .item-img,.item-content .item-video{
+	width: 200rpx;
+	height: 200rpx;
+}
+.item-content .item-img image,.item-content .item-video video{
+	width: 100%;
+	height: 100%;
+}
+/* 时间线 */
+.time-line{
+	font-size:24rpx;
+	font-weight:500;
+	color:rgba(128,137,150,1);
+	line-height:36rpx;
+	text-align: center;
+}
+
+/* 底部操作 */
+.handle-bottom{
+	width:100%;
+	height:234rpx;
+	background:rgba(235,235,235,1);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+.handle-bottom image{
+	width: 50rpx;
+}
+.handle-wrap{
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	padding:16rpx 0;
+	border-top:1rpx solid rgba(221,221,221,1);
+}
+.handle-wrap .massage-box{
+	width:516rpx;
+	height:80rpx;
+	background:rgba(255,255,255,1);
+	border-radius:4rpx;
+}
+.handle-wrap .massage-text{
+	padding: 0 10rpx;
+}
+.massage-text input{
+	width: 100%;
+	height: 100%;
+	
+}
+/*更多 */
+.more-handle{
+	border-top:1rpx solid rgba(221,221,221,1);
+	height: 121rpx;
+	padding: 40rpx 110rpx;
+	display: flex;
+	align-items: center;
+}
+/*更多 */
+.more-handle .massage-img{
+	margin-right: 69rpx;
+}

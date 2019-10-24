@@ -12,6 +12,8 @@ App({
         success: (res) => {
           // console.log(res.statusBarHeight)
           this.globalData.height = res.statusBarHeight
+		  this.globalData.statusBarHeight = res.statusBarHeight;
+		  this.globalData.headerHeight = res.system.indexOf('iOS') > -1 ? 44 : 48;
         }, fail(err) {
           // console.log(err);
         }
@@ -45,6 +47,8 @@ App({
   },
   globalData: {
     share: false,  // 分享默认为false
-    height: 0 // 导航栏高度
+    height: 0 ,// 导航栏高度
+	statusBarHeight:0,//导航的高度
+	headerHeight:0,//头部的高度
   }
 })

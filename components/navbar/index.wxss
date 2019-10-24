@@ -33,7 +33,6 @@
   margin-left: 30rpx;
   width: 140rpx;
   justify-content: space-between;
-  height: 100%;
   height: 64rpx;
   /* background: red; */
   /* border-radius: 20rpx;
@@ -44,22 +43,21 @@
   display: flex;
   border-radius: 32rpx;
   border: 1px solid #DADADA;
+  align-items: center;
+  
 }
 .navbar-v-line {
   width: 1px;
   height: 30rpx;
   margin: 0 22rpx;
   background-color: #e5e5e5;
-  margin-top: 4rpx;
 }
 
 .back-pre, .back-home {
   width: 30rpx;
   height: 30rpx;
-  margin-top: 4rpx;
 }
 .nav-capsule .back-home {
   width: 30rpx;
   height: 30rpx;
-  margin-top: 4rpx;
 }

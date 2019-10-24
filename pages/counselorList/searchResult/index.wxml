@@ -6,7 +6,7 @@
 		<view class='customer-box counselor'>
 			<view class='customer-item'>
 				<view class='customer-header'>
-					<image src='{{counselorObj.imgPath}}' mode='aspectFill' class='header-img'></image>
+					<image src='{{imageUrl+counselorObj.imgPath}}' mode='aspectFill' class='header-img'></image>
 				</view>
 				<view class='customer-info'>
 					<view class='c-info-item'>
@@ -26,7 +26,7 @@
 			<scroll-view scroll-x="true" wx:if='{{visitorList.length>0}}'>
 				<view class='customer-item' wx:for='{{visitorList}}' wx:key='{{index}}'>
 					<view class='customer-header'>
-						<image src='{{item.visitorImg}}' mode='aspectFill' class='header-img'></image>
+						<image src='{{imageUrl+item.visitorImg}}' mode='aspectFill' class='header-img'></image>
 					</view>
 					<view class='customer-info'>
 						<view class='c-info-item'>

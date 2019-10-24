@@ -1,0 +1,115 @@
+<!-- 导航 -->
+<view class='nav-wrap' style='height: {{statusBarHeight+headerHeight}}px;'>
+	<!-- 顶部状态栏 -->
+	<view style='height: {{statusBarHeight}}px;'></view>
+	<view style='height: {{headerHeight}}px;position: relative;'>
+		<!-- 导航栏 中间的标题 -->
+		<view class='nav-title' style='line-height: {{headerHeight}}px;'>{{navTitle}}</view>
+		<view style='display: flex; justify-content: space-around;flex-direction: column'>
+			<!-- 导航栏  左上角的返回按钮 和home按钮 -->
+			<!-- 其中wx:if='{{navbarData.showCapsule}}' 是控制左上角按钮的显示隐藏，首页不显示 -->
+			<view class='nav-capsule' style='height: {{headerHeight}}px;'>
+				<!-- 左上角的返回按钮，wx:if='{{!share}}'空制返回按钮显示 -->
+				<!-- 从分享进入小程序时 返回上一级按钮不应该存在 -->
+				<view class="btn-con">
+					<view bindtap='_navback'>
+						<image src='/assets/images/back.png' mode='aspectFit' class='back-pre'></image>
+					</view>
+					<!-- <view class='navbar-v-line' wx:if='{{share}}'></view> -->
+					<view class='navbar-v-line'></view>
+					<view bindtap='_gotoList'>
+						<image src='/assets/images/menu.png' mode='aspectFit' class='back-home'></image>
+					</view>
+				</view>
+
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 内容 -->
+<view class="container" style="padding-top:{{statusBarHeight+headerHeight}}px">
+	<view class="content">
+		<!-- <block wx:for='{{list}}' wx:key='{{index}}'> -->
+		<view class="time-line">今天5.00</view>
+		<!-- 对方 -->
+		<view class="opposite">
+			<view class="item-header">
+				<image src='/assets/images/text.jpg' mode='aspectFill'></image>
+			</view>
+			<view class="item-content">
+				<view class="item-name">对方</view>
+				<!-- <view class="item-text">哈哈哈哈哈哈哈</view>
+				<view class="item-voice" catchtap='playVoice'>
+					<image src='/assets/images/massage/voice_3.png' mode='aspectFill'></image>13″
+				</view> -->
+				<view class="item-img"  bindtap='previewImage' data-img='http://94.191.108.118:8080/kang-resource/folderName/2019-10-18/43902b93-2edd-4354-a95d-606b06c939a3.jpg'>
+					<image src='http://94.191.108.118:8080/kang-resource/folderName/2019-10-18/43902b93-2edd-4354-a95d-606b06c939a3.jpg' mode='aspectFill'></image>
+				</view>
+				<!-- 视频 -->
+				<!-- <view class="item-video">
+					<video class="video_content" id='myVideo{{index}}' data-index='{{index}}' src="" bindplay='palyVideo' controls>
+					</video>
+				</view> -->
+			</view>
+		</view>
+		<!-- 自己 -->
+		<view class="myself">
+			<view class="item-content">
+				<view class="item-name">我</view>
+				<view class="item-text">哈哈哈哈哈哈哈</view>
+				<!-- <view class="item-voice" catchtap='playVoice'>12″
+					<image src='/assets/images/voice_4.png' mode='aspectFill'></image>
+				</view>
+				<view class="item-img"  bindtap='previewImage' data-img='http://94.191.108.118:8080/kang-resource/folderName/2019-10-18/43902b93-2edd-4354-a95d-606b06c939a3.jpg'>
+					<image src='http://94.191.108.118:8080/kang-resource/folderName/2019-10-18/43902b93-2edd-4354-a95d-606b06c939a3.jpg' mode='aspectFill'></image>
+				</view>
+				<view class="item-video">
+					<video class="video_content" id='myVideo{{index}}' data-index='{{index}}' src="" bindplay='palyVideo' controls>
+					</video>
+				</view> -->
+			</view>
+			<view class="item-header">
+				<image src='/assets/images/text.jpg' mode='aspectFill'></image>
+			</view>
+		</view>
+		<view class="myself">
+			<view class="item-content">
+				<view class="item-name">我</view>
+				<view class="item-voice" catchtap='playVoice'>12″
+					<image src='/assets/images/massage/voice_4.png' mode='aspectFill'></image>
+				</view>
+			</view>
+			<view class="item-header">
+				<image src='/assets/images/text.jpg' mode='aspectFill'></image>
+			</view>
+		</view>
+		<!-- </block> -->
+	</view>
+	<!-- 底部操作 -->
+	<view class="handle-bottom">
+		<view class="handle-wrap">
+			<view class="show-voice">
+				<image src='/assets/images/massage/voice.png' mode='widthFix'></image>
+			</view>
+			<view class="massage-box">
+				<view class="massage-text">
+					<input type="text"/>
+				</view>
+				<!-- <view class="massage-voice">
+					<view>按住说话</view>
+				</view> -->
+			</view>
+			<view class="show-more">
+				<image src='/assets/images/massage/more.png' mode='widthFix'></image>
+			</view>
+		</view>
+		<view class="more-handle">
+			<view class="massage-img">
+				<image src='/assets/images/massage/img.png' mode='widthFix'></image>
+			</view>
+			<view class="massage-video">
+				<image src='/assets/images/massage/video.png' mode='widthFix'></image>
+			</view>
+		</view>
+	</view>
+</view>

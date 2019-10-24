@@ -2,18 +2,12 @@
 <!-- 暂无数据 -->
 <import src="/pages/no_data/index.wxml" />
 <view class="container" style='padding-top: {{height}}px'>
-<!--  <view class="search">
-    <input type="text" bindchange="toSearch" confirm-type="search" placeholder-class="input-style" placeholder="请输入电话号码"/>
-  </view> -->
   <view class="content">
     <!-- <view class="title">置业顾问</view> -->
-    <!-- <block>
-      <template is="noData" data="{{text:'暂无相关数据',mtop:300}}"></template>
-    </block> -->
     <view class="list-con">
       <view class="list" wx:for="{{counselorList}}" wx:key='{{index}}' bindtap="detailGo"  data-index='{{index}}'>
         <view class="avatar">
-          <image class="avatar-image" src="{{item.imgPath}}"/>
+          <image class="avatar-image" src="{{imageUrl+item.imgPath}}"/>
           <!-- <image src="../../assets/images/vip1-circle.png" class="vip-icon"/> -->
         </view>
         <view class="username">
@@ -22,5 +16,4 @@
       </view>
     </view>
   </view>
-  <!-- <i-toast id="toast" /> -->
 </view>

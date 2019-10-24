@@ -10,11 +10,11 @@ Page({
 			showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
 			title: '客户浏览', //导航栏 中间的标题
 		},
-		height: app.globalData.height * 2 + 20, // 此页面 页面内容距最顶部的距离
+		height: app.globalData.statusBarHeight+app.globalData.headerHeight, // 此页面 页面内容距最顶部的距离
 		entered: [], //已录入
 		notEentered: [], //未录入
-		userId:0,//当前登录人ID
-		companyId:'',//所属机构ID
+		userId:wx.getStorageSync("userInfo").id,//当前登录人ID
+		companyId:wx.getStorageSync("userInfo").companyId,//所属机构ID
 		visitorList: [], //成员列表
 		counselorList: [], //职业顾问
 		componentText: {
@@ -27,10 +27,6 @@ Page({
 	},
 	//options(Object)
 	onLoad: function(options) {
-		this.setData({
-			userId:wx.getStorageSync("userInfo").id,
-			companyId:wx.getStorageSync("userInfo").companyId
-		})
 	},
 	onReady: function() {
 		// 获取顾问

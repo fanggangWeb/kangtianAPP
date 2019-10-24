@@ -1,0 +1,97 @@
+/**index.wxss**/
+view{
+	box-sizing: border-box;
+}
+/* 一行文字显示省略号 */
+.ellipsis-1{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.container {
+  width: 100%;
+}
+.massage-item{
+	display: flex;
+	padding: 0 30rpx;
+	width: 100%;
+	align-items: center;
+	flex-direction: row;
+	height: 150rpx;
+}
+.msg-img{
+	width: 90rpx;
+	height: 90rpx;
+	margin-right: 20rpx;
+	border-radius: 50%;
+	position: relative;
+}
+.msg-img.mas-dot:after{
+	position: absolute;
+	width: 20rpx;
+	height: 20rpx;
+	content: "";
+	top:0;
+	right: 0;
+	background-color: #EA3434;
+	border-radius: 50%;
+}
+/* 系统头像或单个聊天图片 */
+.img-system image{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+/* 群组 */
+.img-group{
+	display: flex;
+	justify-content: space-between;
+	align-content: space-between;
+	flex-flow: row wrap;
+	overflow: hidden;
+	border-radius: 50%;
+	width: 100%;
+	height: 100%;
+}
+.img-group view{
+	width: 44rpx;
+	height: 44rpx;
+	background:rgba(236,239,244,1);
+}
+.img-group image{
+	width: 100%;
+	height: 100%;
+}
+.msg-info{
+	border-bottom: 1rpx solid rgba(236,239,244,1);
+	width: 580rpx;
+	height: 100%;
+	padding: 40rpx 0;
+}
+.msg-info .msg-title{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 18rpx;
+	width: 100%;
+}
+.msg-info .msg-name{
+	line-height: 1;
+	font-size:32rpx;
+	font-weight:bold;
+	color:rgba(51,51,51,1);
+	max-width: 400rpx;
+}
+.msg-info .msg-time{
+	line-height: 1;
+	font-size:22rpx;
+	font-weight:500;
+	color:rgba(153,153,153,1);
+}
+.msg-info .msg-text{
+	font-size:24rpx;
+	line-height: 1;
+	font-weight:500;
+	color:rgba(153,153,153,1);
+	width: 100%;
+}

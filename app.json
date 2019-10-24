@@ -3,7 +3,8 @@
     "pages/login/login",
     "pages/home/index",
     "pages/personInfo/personInfo",
-    "pages/bar/index",
+    "pages/massage/index",
+	  "pages/massage/talkList/index",
     "pages/editPassword/editPassword",
     "pages/addAccount/addAccount",
     "pages/switchAccount/switchAccount",
@@ -42,7 +43,7 @@
       {
         "selectedIconPath": "/assets/images/tab-wode1.png",  
         "iconPath": "/assets/images/tab-wode.png",  
-        "pagePath": "pages/bar/index",
+        "pagePath": "pages/massage/index",
         "text": "我的消息"
       },
       {

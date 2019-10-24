@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<view class="container" style="padding-top: {{height}}px;">
+	<!-- 推送 -->
+	<view class="massage-item">
+		<view class="msg-img img-system mas-dot">
+			<image src="/assets/images/massage/massage.png" mode="aspectFill"></image>
+		</view>
+		<view class="msg-info">
+			<view class="msg-title">
+				<view class="msg-name ellipsis-1">王祖蓝一组群聊王祖蓝一组群聊王祖蓝一组群聊</view>
+				<view class="msg-time">下午3.00</view>
+			</view>
+			<view class="msg-text ellipsis-1">什么时候可以见面谈一谈什么时候可以见面谈一谈什么时候可以见面谈一谈</view>
+		</view>
+	</view>
+	<!-- 群组 -->
+	<view class="massage-item" bindtap='intoChat'>
+		<view class="msg-img mas-dot">
+			<view class="img-group">
+				<view>
+					<image src="/assets/images/text.jpg" mode="aspectFill"></image>
+				</view>
+				<view>
+					<image src="/assets/images/text.jpg" mode="aspectFill"></image>
+				</view>
+				<view>
+					<image  mode="aspectFill"></image>
+				</view>
+				<view></view>
+			</view>
+		</view>
+		<view class="msg-info">
+			<view class="msg-title">
+				<view class="msg-name ellipsis-1">王祖蓝一组群聊王祖蓝一组群聊王祖蓝一组群聊</view>
+				<view class="msg-time">下午3.00</view>
+			</view>
+			<view class="msg-text ellipsis-1">什么时候可以见面谈一谈什么时候可以见面谈一谈什么时候可以见面谈一谈</view>
+		</view>
+	</view>
+</view>

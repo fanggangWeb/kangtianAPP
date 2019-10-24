@@ -9,7 +9,8 @@ Component({
     }
   },
   data: {
-    height: '',
+	  statusBarHeight:0,//导航的高度
+	  headerHeight:0,//头部的高度
     //默认值  默认显示左上角
     navbarData: {
       showCapsule: 1
@@ -22,7 +23,8 @@ Component({
     })
     // 定义导航栏的高度   方便对齐
     this.setData({
-      height: app.globalData.height
+	  statusBarHeight: app.globalData.statusBarHeight,
+	  headerHeight: app.globalData.headerHeight
     })
   },
   methods: {

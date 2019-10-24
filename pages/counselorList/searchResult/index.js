@@ -9,15 +9,15 @@ Page({
       showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
       title: '顾问详情', //导航栏 中间的标题
     },
-    height: app.globalData.height * 2 + 20,  // 此页面 页面内容距最顶部的距离
+    height: app.globalData.statusBarHeight+app.globalData.headerHeight,  // 此页面 页面内容距最顶部的距离
 	visitorList:[],//成员列表
 	counselorObj:{},//顾问信息
+	imageUrl:imageURL,
+	counselorObj:wx.getStorageSync('counselorObj'),
+	role:wx.getStorageSync("userInfo").role
   },
   //options(Object)
   onLoad: function (options) {
-	this.setData({
-		counselorObj:wx.getStorageSync('counselorObj')
-	})
 	this.getData();
 		
   },
@@ -33,10 +33,6 @@ Page({
   onUnload: function () {
 	wx.removeStorageSync('counselorObj');
   },
-  toSearch(e) {
-    var value = e.detail.value
-    console.log(value)
-  },
   onReachBottom: function () {
 
   },
@@ -46,7 +42,7 @@ Page({
 	  	companyId:wx.getStorageSync("userInfo").companyId,
 		start:0,
 		num:1000,
-		flag:0,
+		flag:this.data.role=='2'?1:0,
 		userId:this.data.counselorObj.propertyConsultantId
 	  }
 	  fetch({
@@ -55,11 +51,6 @@ Page({
 	  	data: data
 	  }).then(res => {
 	  	if (res.code == 1) {
-			console.log(res)
-	  		// 获取在线的
-	  		res.data.forEach((v, i) => {
-	  			v.visitorImg = imageURL + v.visitorImg;
-	  		})
 	  		this.setData({
 	  			visitorList: res.data
 	  		})

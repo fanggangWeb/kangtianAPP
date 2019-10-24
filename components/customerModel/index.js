@@ -25,7 +25,8 @@ Component({
 			value: [],
 			observer: function(newVal, oldVal) {
 				this.setData({
-					dataList: newVal
+					dataList: newVal,
+					listHeight:Math.ceil(newVal.length/3)*228
 				})
 			},
 		},
@@ -63,6 +64,10 @@ Component({
 		lastX: 0,          //滑动开始x轴位置
 		lastY: 0,          //滑动开始y轴位置
 		currentGesture: 0, //标识手势
+		listHeight:0,//列表的高度
+		listPosition:0,//列表的位置
+		lastX:0,
+		lastY:0
 	},
 
 	behavior:{
@@ -125,49 +130,78 @@ Component({
 		preventTouchMove() {
 
 		},
-		//滑动移动事件
-		  handletouchmove: function (event) {
-		    var currentX = event.touches[0].pageX
-		    var currentY = event.touches[0].pageY
-		    var tx = currentX - this.data.lastX
-		    var ty = currentY - this.data.lastY
-		    var text = ""
-		    //左右方向滑动
-		    if (Math.abs(tx) <= Math.abs(ty)) {
-				if (ty < 0){
-		        console.log("向上滑动")
-				setTimeout(()=>{
-					// if()
-					// -10
-				})
-				}else if (ty > 0){
-				  console.log("向下滑动")
-				}
-		    }
+		// //滑动移动事件
+		//   handletouchmove: function (event) {
+		//     var currentX = event.touches[0].pageX
+		//     var currentY = event.touches[0].pageY
+		//     var tx = currentX - this.data.lastX
+		//     var ty = currentY - this.data.lastY
+		// 	if(this.data.listHeight<=60) return;
+		//     var listPosition = this.data.listPosition;
+		// 	let minHeight = -(this.data.listHeight-460);
+		//     //左右方向滑动
+		//     if (Math.abs(tx) <= Math.abs(ty)) {
+		// 		if (ty < 0){
+		// 			console.log("向上滑动")
+		// 			clearTimeout(this.timer1)
+		// 			this.timer=setTimeout(()=>{
+		// 				listPosition=listPosition-1;
+		// 				if(this.data.listPosition>=minHeight){
+		// 					listPosition=minHeight;
+		// 					clearTimeout(this.timer)
+		// 				}
+		// 				this.setData({
+		// 					listPosition:listPosition
+		// 				})
+		// 			},50)
+		// 			// setTimeout(()=>{
+		// 			// 	listPosition=listPosition-1;
+		// 			// 	if(this.data.listPosition>=minHeight){
+		// 			// 		listPosition=minHeight;
+		// 			// 	}
+		// 			// 	this.setData({
+		// 			// 		listPosition:listPosition
+		// 			// 	})
+		// 			// },50)
+		// 		}else if (ty > 0){
+		// 			clearTimeout(this.timer)
+		// 		  console.log("向下滑动")
+		// 			// setTimeout(()=>{
+		// 			// 	listPosition=listPosition+1;
+		// 			// 	if(this.data.listPosition>=0){
+		// 			// 		listPosition=0;
+		// 			// 	}
+		// 			// 	this.setData({
+		// 			// 		listPosition:listPosition
+		// 			// 	})
+		// 			// },10)
+		// 			this.timer1=setTimeout(()=>{
+		// 				listPosition=listPosition+1;
+		// 				if(this.data.listPosition>=0){
+		// 					listPosition=0;
+		// 					clearTimeout(this.timer1)
+		// 				}
+		// 				this.setData({
+		// 					listPosition:listPosition
+		// 				})
+		// 			},10)
+		// 		}
+		//     }
+		// 	console.log(this.data.listPosition)
+		//     //将当前坐标进行保存以进行下一次计算
+		//     this.data.lastX = currentX
+		//     this.data.lastY = currentY
+		//   },
 		
-		    //将当前坐标进行保存以进行下一次计算
-		    this.data.lastX = currentX
-		    this.data.lastY = currentY
-			console.log(this.data.lastX)
-			console.log(this.data.lastY)
-		  },
-		
-		  //滑动开始事件
-		  handletouchtart: function (event) {
-		    this.data.lastX = event.touches[0].pageX
-		    this.data.lastY = event.touches[0].pageY
-			// var query = wx.createSelectorQuery();
-			//     //选择id
-			//     var that = this;
-			//     query.selectAll('.customer-wrap').boundingClientRect(function (rect) {
-			//       // console.log(rect.width)
-			// 	  console.log(rect)
-			      
-			//     }).exec();
-		  },
-		  //滑动结束事件
-		  handletouchend: function (event) {
-		    this.data.currentGesture = 0;
-		  },
+		//   //滑动开始事件
+		//   handletouchtart: function (event) {
+		//     this.data.lastX = event.touches[0].pageX
+		//     this.data.lastY = event.touches[0].pageY
+		//   },
+		//   //滑动结束事件
+		//   handletouchend: function (event) {
+		// 	clearTimeout(this.timer);
+		// 	clearTimeout(this.timer1)
+		//   },
 	}
 })
